@@ -30,7 +30,7 @@ const fonts = {
 
 const MAX_WORDS = 18;
 const FALL_TIME = 10500;
-const REST_TIME = 50000;
+const REST_TIME = 5000;
 let streamTimer = null;
 
 function addWord() {
@@ -77,7 +77,7 @@ function addWord() {
     a.style.left = `${targetLeft}px`;
   });
 
-  // Let it remain in the pile for a while, then quietly disappear.
+  // After reaching the floor, keep it there for 5 seconds, then quietly disappear.
   window.setTimeout(() => {
     a.classList.add("fading");
     window.setTimeout(() => a.remove(), 900);
