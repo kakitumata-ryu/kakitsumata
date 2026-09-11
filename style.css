@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&display=swap');
 
 :root{
-  --bg:#17191b;--paper:#202326;--ink:#ece8df;--muted:#aaa79f;
-  --line:#36393b;--accent:#b28a67;
+  --bg:#0d1013;--paper:#151a1f;--ink:#eeeae2;--muted:#aeb4ba;
+  --line:#2c343b;--accent:#d6a45f;--neon:#60d7d0;--neon2:#d96b75;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -29,7 +29,7 @@ h1{font-weight:400;font-size:clamp(2.4rem,7vw,5rem);line-height:1.2;letter-spaci
   10%{opacity:.85}
   45%{transform:translate3d(var(--sway),250px,0) rotate(calc(var(--rot)*-1))}
   75%{transform:translate3d(calc(var(--sway)*-0.7),430px,0) rotate(var(--rot))}
-  100%{opacity:.12;transform:translate3d(var(--sway),700px,0) rotate(calc(var(--rot)*-1))}
+  100%{opacity:.10;transform:translate3d(var(--sway),700px,0) rotate(calc(var(--rot)*-1))}
 }
 .again{position:absolute;bottom:28px;z-index:4;border:1px solid var(--line);border-radius:999px;background:var(--paper);padding:8px 17px;color:var(--muted);font:inherit;font-size:.72rem;cursor:pointer}
 .again:hover{border-color:var(--accent);color:var(--ink)}
@@ -88,4 +88,53 @@ footer{text-align:center;color:var(--muted);font-size:.68rem;padding:70px 20px}
   margin:0 0 6px 10px;
   background:var(--accent);
   opacity:.6;
+}
+
+/* v4: 夜の街。ネオンは強め、本文は静かに。 */
+.site-header{
+  box-shadow: 0 0 24px rgba(96,215,208,.06), 0 3px 22px rgba(0,0,0,.28);
+}
+.logo{
+  text-shadow: 0 0 10px rgba(96,215,208,.35);
+}
+nav a:hover{
+  color: var(--neon);
+  text-shadow: 0 0 10px rgba(96,215,208,.28);
+}
+.hero{
+  background:
+    radial-gradient(circle at 18% 28%, rgba(96,215,208,.10), transparent 22%),
+    radial-gradient(circle at 84% 42%, rgba(217,107,117,.08), transparent 24%),
+    radial-gradient(circle at 52% 86%, rgba(214,164,95,.07), transparent 26%);
+}
+.hero::before{
+  width: 330px; height: 330px; left: -50px; top: 90px;
+  background: var(--neon);
+  filter: blur(100px);
+  opacity: .08;
+}
+.hero::after{
+  width: 300px; height: 300px; right: -40px; bottom: 80px;
+  background: var(--neon2);
+  filter: blur(100px);
+  opacity: .07;
+}
+.small{
+  text-shadow: 0 0 9px rgba(96,215,208,.18);
+}
+.word{
+  text-shadow:
+    0 0 5px rgba(96,215,208,.22),
+    0 0 14px rgba(96,215,208,.10);
+}
+.word:hover span{
+  text-shadow:
+    0 0 7px rgba(96,215,208,.45),
+    0 0 20px rgba(96,215,208,.18);
+}
+.again:hover{
+  box-shadow: 0 0 16px rgba(96,215,208,.12);
+}
+.work:hover{
+  box-shadow: inset 0 0 24px rgba(96,215,208,.03);
 }
