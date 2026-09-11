@@ -28,9 +28,9 @@ const fonts = {
   brush: '"Yu Mincho","Hiragino Mincho ProN",serif'
 };
 
-const MAX_WORDS = 14;
-const FALL_TIME = 7000;
-const REST_TIME = 9000;
+const MAX_WORDS = 18;
+const FALL_TIME = 8500;
+const REST_TIME = 18000;
 let streamTimer = null;
 
 function addWord() {
@@ -47,8 +47,8 @@ function addWord() {
   a.className = "word";
   a.href = w.h;
 
-  const left = 4 + Math.random() * 90;
-  const sway = -45 + Math.random() * 90;
+  const left = 4 + Math.random() * 82;
+  const sway = -38 + Math.random() * 76;
   const rot = -7 + Math.random() * 14;
 
   // Each new word gets its own landing height, so they gently pile up.
@@ -69,6 +69,13 @@ function addWord() {
   a.appendChild(span);
   sky.appendChild(a);
 
+  // Keep long phrases fully inside the viewport instead of clipping at the sides.
+  requestAnimationFrame(() => {
+    const maxLeft = Math.max(8, sky.clientWidth - a.offsetWidth - 8);
+    const targetLeft = Math.min(Math.max(8, (left / 100) * sky.clientWidth), maxLeft);
+    a.style.left = `${targetLeft}px`;
+  });
+
   // Let it remain in the pile for a while, then quietly disappear.
   window.setTimeout(() => {
     a.classList.add("fading");
@@ -83,7 +90,7 @@ function startStream() {
   for (let i = 0; i < 5; i++) {
     window.setTimeout(addWord, i * 700);
   }
-  streamTimer = window.setInterval(addWord, 1700);
+  streamTimer = window.setInterval(addWord, 2200);
 }
 
 startStream();
