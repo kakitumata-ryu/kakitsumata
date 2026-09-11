@@ -30,22 +30,7 @@ h1{font-weight:400;font-size:clamp(2.4rem,7vw,5rem);line-height:1.2;letter-spaci
     opacity:0;
     transform:translate3d(0,-28px,0) rotate(var(--rot));
   }
-  7%{opacity:.88}
-  20%{
-    transform:translate3d(calc(var(--sway)*.20),calc(var(--land)*.18),0) rotate(calc(var(--rot)*-.45));
-  }
-  36%{
-    transform:translate3d(calc(var(--sway)*-.16),calc(var(--land)*.36),0) rotate(calc(var(--rot)*.32));
-  }
-  52%{
-    transform:translate3d(calc(var(--sway)*.16),calc(var(--land)*.54),0) rotate(calc(var(--rot)*-.25));
-  }
-  68%{
-    transform:translate3d(calc(var(--sway)*-.12),calc(var(--land)*.70),0) rotate(calc(var(--rot)*.18));
-  }
-  84%{
-    transform:translate3d(calc(var(--sway)*.06),calc(var(--land)*.86),0) rotate(calc(var(--rot)*-.10));
-  }
+  8%{opacity:.88}
   100%{
     opacity:.9;
     transform:translate3d(0,var(--land),0) rotate(calc(var(--rot)*-.04));
@@ -346,6 +331,23 @@ main {
 @media(max-width:680px){
   .hero-center-copy{
     font-size:clamp(1.9rem,10vw,3rem);
+    letter-spacing:.07em;
+  }
+}
+
+/* v12: quieter two-line status */
+.hero-center-copy{
+  font-size:clamp(2rem,5.2vw,3.8rem);
+  line-height:1.5;
+  color:#fff;
+  font-weight:600;
+  letter-spacing:.12em;
+}
+.hero-center-copy br{display:block}
+@media(max-width:680px){
+  .hero-center-copy{
+    font-size:clamp(1.7rem,9vw,2.7rem);
+    line-height:1.5;
     letter-spacing:.07em;
   }
 }

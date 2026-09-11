@@ -53,8 +53,9 @@ function addWord() {
 
   // Each new word gets its own landing height, so they gently pile up.
   const pile = sky.querySelectorAll(".word").length;
-  const pileOffset = Math.min(pile * 22, Math.max(0, sky.clientHeight - 90));
-  const land = Math.max(40, sky.clientHeight - 65 - pileOffset + Math.random() * 18);
+  const pileOffset = Math.min(pile * 22, Math.max(0, sky.clientHeight - 110));
+  // Land near the actual bottom edge, leaving room for the pile to build upward.
+  const land = Math.max(40, sky.clientHeight - 72 - pileOffset + Math.random() * 14);
 
   a.style.left = `${left}%`;
   a.style.setProperty("--fall-time", `${FALL_TIME}ms`);
