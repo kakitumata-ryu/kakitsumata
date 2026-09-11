@@ -29,8 +29,8 @@ const fonts = {
 };
 
 const MAX_WORDS = 18;
-const FALL_TIME = 9000;
-const REST_TIME = 32000;
+const FALL_TIME = 10500;
+const REST_TIME = 50000;
 let streamTimer = null;
 
 function addWord() {
