@@ -28,15 +28,18 @@ const fonts = {
   brush: '"Yu Mincho","Hiragino Mincho ProN",serif'
 };
 
-const MAX_WORDS = 9;
-const LIFETIME = 15000;
+const MAX_WORDS = 14;
+const FALL_TIME = 7000;
+const REST_TIME = 9000;
 let streamTimer = null;
 
 function addWord() {
-  // Keep the sky lively but bounded.
-  const active = sky.querySelectorAll(".word");
+  const active = [...sky.querySelectorAll(".word")];
+
+  // Keep a small pile rather than endlessly filling the screen.
   if (active.length >= MAX_WORDS) {
-    active[0].remove();
+    active[0].classList.add("fading");
+    window.setTimeout(() => active[0]?.remove(), 900);
   }
 
   const w = words[Math.floor(Math.random() * words.length)];
@@ -45,15 +48,20 @@ function addWord() {
   a.href = w.h;
 
   const left = 4 + Math.random() * 90;
-  const sway = -70 + Math.random() * 140;
+  const sway = -45 + Math.random() * 90;
   const rot = -7 + Math.random() * 14;
-  const duration = 9000 + Math.random() * 6000;
+
+  // Each new word gets its own landing height, so they gently pile up.
+  const pile = sky.querySelectorAll(".word").length;
+  const pileOffset = Math.min(pile * 22, Math.max(0, sky.clientHeight - 90));
+  const land = Math.max(40, sky.clientHeight - 65 - pileOffset + Math.random() * 18);
 
   a.style.left = `${left}%`;
-  a.style.setProperty("--duration", `${duration}ms`);
-  a.style.setProperty("--delay", "0ms");
+  a.style.setProperty("--fall-time", `${FALL_TIME}ms`);
+  a.style.setProperty("--land", `${land}px`);
   a.style.setProperty("--sway", `${sway}px`);
   a.style.setProperty("--rot", `${rot}deg`);
+  a.style.setProperty("--rest", `${REST_TIME}ms`);
 
   const span = document.createElement("span");
   span.textContent = w.t;
@@ -61,21 +69,21 @@ function addWord() {
   a.appendChild(span);
   sky.appendChild(a);
 
-  // Remove each word after a fixed lifetime, even if the animation is still visually subtle.
+  // Let it remain in the pile for a while, then quietly disappear.
   window.setTimeout(() => {
-    a.remove();
-  }, LIFETIME);
+    a.classList.add("fading");
+    window.setTimeout(() => a.remove(), 900);
+  }, FALL_TIME + REST_TIME);
 }
 
 function startStream() {
   if (streamTimer) window.clearInterval(streamTimer);
   sky.innerHTML = "";
 
-  // Start with a small scatter, then continue dropping forever.
   for (let i = 0; i < 5; i++) {
-    window.setTimeout(addWord, i * 450);
+    window.setTimeout(addWord, i * 700);
   }
-  streamTimer = window.setInterval(addWord, 1200);
+  streamTimer = window.setInterval(addWord, 1700);
 }
 
 startStream();

@@ -18,18 +18,23 @@ main{max-width:980px;margin:auto;padding:0 20px}
 h1{font-weight:400;font-size:clamp(2.4rem,7vw,5rem);line-height:1.2;letter-spacing:.06em;margin:18px 0}
 .hero-copy p:not(.small){color:var(--muted);font-size:.9rem}
 .sky{position:absolute;inset:0;overflow:hidden}
-.word{position:absolute;top:-80px;text-decoration:none;cursor:pointer;white-space:nowrap;z-index:2;animation:fall var(--duration) linear var(--delay) forwards}
+.word{position:absolute;top:-80px;text-decoration:none;cursor:pointer;white-space:nowrap;z-index:2;animation:fall var(--fall-time) cubic-bezier(.2,.7,.25,1) forwards}
 .word:hover{z-index:5}
 .word span{display:block;transition:transform .35s ease,opacity .25s ease}
 .word:hover span{transform:scale(1.07);opacity:.75}
 .word::after{content:"拾う";position:absolute;left:50%;top:100%;transform:translateX(-50%);font-size:.58rem;letter-spacing:.15em;color:var(--accent);opacity:0;transition:opacity .2s}
 .word:hover::after,.word:focus-visible::after{opacity:1}
+.word.fading{animation:fadePile .9s ease forwards!important}
 @keyframes fall{
   0%{opacity:0;transform:translate3d(0,-20px,0) rotate(var(--rot))}
-  10%{opacity:.85}
-  45%{transform:translate3d(var(--sway),250px,0) rotate(calc(var(--rot)*-1))}
-  75%{transform:translate3d(calc(var(--sway)*-0.7),430px,0) rotate(var(--rot))}
-  100%{opacity:.10;transform:translate3d(var(--sway),700px,0) rotate(calc(var(--rot)*-1))}
+  12%{opacity:.9}
+  55%{transform:translate3d(var(--sway),calc(var(--land) * .55),0) rotate(calc(var(--rot)*-1))}
+  82%{transform:translate3d(calc(var(--sway)*.25),calc(var(--land) * .88),0) rotate(var(--rot))}
+  100%{opacity:.9;transform:translate3d(0,var(--land),0) rotate(calc(var(--rot)*-.35))}
+}
+@keyframes fadePile{
+  0%{opacity:.9;transform:translate3d(0,var(--land),0) rotate(calc(var(--rot)*-.35))}
+  100%{opacity:0;transform:translate3d(0,var(--land),0) rotate(calc(var(--rot)*-.35))}
 }
 .again{position:absolute;bottom:28px;z-index:4;border:1px solid var(--line);border-radius:999px;background:var(--paper);padding:8px 17px;color:var(--muted);font:inherit;font-size:.72rem;cursor:pointer}
 .again:hover{border-color:var(--accent);color:var(--ink)}
