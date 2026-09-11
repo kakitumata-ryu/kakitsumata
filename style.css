@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&display=swap');
 
 :root{
-  --bg:#f5f3ed;--paper:#fbfaf6;--ink:#373733;--muted:#7b7a72;
-  --line:#ddd9cf;--accent:#6c796f;
+  --bg:#17191b;--paper:#202326;--ink:#ece8df;--muted:#aaa79f;
+  --line:#36393b;--accent:#b28a67;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;line-height:1.9}
 a{color:inherit}
-.header{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:15px clamp(18px,5vw,64px);background:rgba(245,243,237,.9);backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
+.header{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:15px clamp(18px,5vw,64px);background:rgba(23,25,27,.9);backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
 .logo{text-decoration:none;letter-spacing:.14em;font-size:1.12rem}
 nav{display:flex;gap:22px}nav a{text-decoration:none;font-size:.78rem;color:var(--muted);letter-spacing:.08em}
 main{max-width:980px;margin:auto;padding:0 20px}
@@ -42,7 +42,7 @@ h2{font-size:1.8rem;font-weight:500;margin:0}
 .hint{color:var(--muted);font-size:.85rem}
 .works{margin-top:25px;border:1px solid var(--line);background:var(--line);display:grid;gap:1px}
 .work{display:grid;grid-template-columns:1fr 1.2fr 2fr;gap:18px;text-decoration:none;background:var(--paper);padding:19px 21px}
-.work:hover{background:#efede5}
+.work:hover{background:#272a2c}
 .work .meta{font-size:.72rem;color:var(--accent)}
 .work strong{font-weight:500}
 .work em{font-style:normal;color:var(--muted);font-size:.84rem}
@@ -55,3 +55,37 @@ footer{text-align:center;color:var(--muted);font-size:.68rem;padding:70px 20px}
  .today{padding:24px;margin-bottom:45px}
 }
 @media(prefers-reduced-motion:reduce){.word{animation:none;top:var(--y)}}
+
+/* 夜の街の気配。派手すぎない看板の光。 */
+.hero::before,
+.hero::after{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  border-radius:50%;
+  filter:blur(45px);
+  opacity:.12;
+}
+.hero::before{
+  width:220px;height:220px;left:4%;top:12%;
+  background:#9b5b4d;
+}
+.hero::after{
+  width:260px;height:260px;right:2%;bottom:12%;
+  background:#b28a67;
+}
+.hero-copy h1{
+  text-shadow:0 0 24px rgba(178,138,103,.08);
+}
+.work,.today,.link-list a,.grave div{
+  box-shadow:0 10px 35px rgba(0,0,0,.08);
+}
+
+.section-title h2::after{
+  content:"";
+  display:inline-block;
+  width:28px;height:1px;
+  margin:0 0 6px 10px;
+  background:var(--accent);
+  opacity:.6;
+}
