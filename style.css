@@ -272,3 +272,33 @@ main {
     font-size:.68rem;
   }
 }
+
+.hero-center-copy{
+  position:relative;
+  z-index:3;
+  pointer-events:none;
+  font-size:clamp(1.65rem,4vw,3rem);
+  letter-spacing:.08em;
+  font-weight:500;
+  text-shadow:0 0 18px rgba(96,215,208,.14);
+}
+@media(max-width:680px){
+  .hero-center-copy{
+    font-size:clamp(1.45rem,8vw,2.2rem);
+    padding:0 18px;
+    text-align:center;
+  }
+}
+
+/* v9: falling phrases are meant to be read */
+.word{
+  font-size:clamp(1.05rem, 2.15vw, 1.45rem);
+}
+@media(max-width:680px){
+  .word{
+    font-size:clamp(.98rem, 4.5vw, 1.22rem);
+  }
+}
+.hero-center-copy{
+  letter-spacing:.1em;
+}
