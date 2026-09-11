@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>成人向け作品 | カキツまた</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <a class="logo" href="index.html">カキツまた / 如く二次創作</a>
+</header>
+<main>
+<section class="section adult-gate">
+  <div class="section-title"><span>確認</span><h2>成人向け作品</h2></div>
+  <p>この先は成人向けの内容を含む作品です。</p>
+  <p>18歳未満の方は閲覧しないでください。</p>
+  <div class="adult-gate-actions">
+    <button id="enter" type="button">成人です。作品を見る</button>
+    <a href="adult.html">戻る</a>
+  </div>
+</section>
+</main>
+<script src="data.js"></script>
+<script>
+const id = new URLSearchParams(location.search).get("id");
+const work = (window.SITE_WORKS||[]).find(w => String(w.id) === String(id) && w.adult && !w.grave);
+const target = work ? "works/adult/" + String(work.id).padStart(3,"0") + ".html" : "adult.html";
+document.querySelector("#enter").addEventListener("click", () => location.href = target);
+</script>
+</body>
+</html>

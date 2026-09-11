@@ -40,39 +40,23 @@
 
 <section id="novel" class="section">
   <div class="section-title"><span>01</span><h2>作品</h2></div>
-  <p class="hint">カプを選ぶと、その作品だけ表示されます。</p>
+  <p class="hint">カプを選ぶと、その作品だけ表示されます。タイトルは五十音順です。</p>
 
   <div class="couple-filters" role="tablist" aria-label="カプで絞り込み">
     <button class="couple-filter active" data-filter="all" type="button" role="tab" aria-selected="true">すべて</button>
-    <button class="couple-filter" data-filter="saema" type="button" role="tab" aria-selected="false">冴真</button>
-    <button class="couple-filter" data-filter="kirima" type="button" role="tab" aria-selected="false">桐真</button>
-    <button class="couple-filter" data-filter="kashima" type="button" role="tab" aria-selected="false">柏真</button>
-    <button class="couple-filter" data-filter="sagama" type="button" role="tab" aria-selected="false">佐真</button>
-    <button class="couple-filter" data-filter="nishima" type="button" role="tab" aria-selected="false">西真</button>
-    <button class="couple-filter" data-filter="noashima" type="button" role="tab" aria-selected="false">ノア真</button>
-    <button class="couple-filter" data-filter="other-majima" type="button" role="tab" aria-selected="false">その他真島関連</button>
-    <button class="couple-filter" data-filter="other-nonmajima" type="button" role="tab" aria-selected="false">その他真島以外</button>
+    <button class="couple-filter" data-filter="冴真" type="button" role="tab" aria-selected="false">冴真</button>
+    <button class="couple-filter" data-filter="桐真" type="button" role="tab" aria-selected="false">桐真</button>
+    <button class="couple-filter" data-filter="柏真" type="button" role="tab" aria-selected="false">柏真</button>
+    <button class="couple-filter" data-filter="佐真" type="button" role="tab" aria-selected="false">佐真</button>
+    <button class="couple-filter" data-filter="西真" type="button" role="tab" aria-selected="false">西真</button>
+    <button class="couple-filter" data-filter="ノア真" type="button" role="tab" aria-selected="false">ノア真</button>
+    <button class="couple-filter" data-filter="その他真島関連" type="button" role="tab" aria-selected="false">その他真島関連</button>
+    <button class="couple-filter" data-filter="その他真島以外" type="button" role="tab" aria-selected="false">その他真島以外</button>
   </div>
 
-  <div class="works" id="works-list">
-    <a href="works/kashima3.html" class="work" data-couple="kashima">
-      <span class="meta">柏真</span>
-      <strong>柏真3</strong>
-      <em>「親父が変だ。最近。」</em>
-    </a>
-    <a href="works/kasa.html" class="work" data-couple="saema">
-      <span class="meta">冴真</span>
-      <strong>傘の使い方</strong>
-      <em>「なんややなくて。みてぇコレ」</em>
-    </a>
-    <a href="works/reimen.html" class="work" data-couple="other-majima">
-      <span class="meta">その他真島関連</span>
-      <strong>冷麺放置プレイ</strong>
-      <em>「冷麺はまだ食べてはいけない。」</em>
-    </a>
-  </div>
-
-  <p class="filter-empty" id="filter-empty" hidden>このカプの作品は、まだありません。</p>
+  <div class="works" id="works-list"></div>
+  <p class="filter-empty" id="filter-empty" hidden>この条件の作品は、まだありません。</p>
+  <p class="adult-door"><a href="adult.html">🔞 成人向け作品はこちら</a></p>
 </section>
 
 <section id="archive" class="section">
@@ -98,6 +82,7 @@
 </main>
 
 <footer>© カキツまた　／　たぶん、まだ増えます。</footer>
+<script src="data.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

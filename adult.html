@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>成人向け作品 | カキツまた</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <a class="logo" href="index.html">カキツまた / 如く二次創作</a>
+  <nav><a href="index.html#novel">作品</a><a href="index.html#archive">墓場</a><a href="index.html#about">ここについて</a><a href="index.html#link">リンク</a></nav>
+</header>
+<main>
+<section class="section">
+  <div class="section-title"><span>成人向け</span><h2>成人向け作品</h2></div>
+  <p class="hint">ここから先は成人向け作品です。作品を選ぶと、閲覧前の確認が表示されます。</p>
+  <div class="couple-filters" id="adult-filters"></div>
+  <div class="works" id="adult-list"></div>
+</section>
+</main>
+<script src="data.js"></script>
+<script>
+const existingHref = {"柏真3":"works/kashima3.html","傘の使い方":"works/kasa.html","冷麺放置プレイ":"works/reimen.html"};
+const esc = s => String(s||"").replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const adultWorks = (window.SITE_WORKS||[]).filter(w=>w.adult && !w.grave).sort((a,b)=>(a.reading||"").localeCompare(b.reading||"","ja"));
+const couples = ["すべて","冴真","桐真","柏真","佐真","西真","ノア真","その他真島関連","その他真島以外"];
+const filters=document.querySelector("#adult-filters"), list=document.querySelector("#adult-list");
+filters.innerHTML=couples.map((c,i)=>`<button class="couple-filter ${i===0?"active":""}" data-filter="${esc(c)}" type="button">${c}</button>`).join("");
+function render(filter="すべて"){
+  filters.querySelectorAll("button").forEach(b=>b.classList.toggle("active",b.dataset.filter===filter));
+  const rows=adultWorks.filter(w=>filter==="すべて"||w.couple===filter);
+  list.innerHTML=rows.map(w=>{
+    const href = existingHref[w.title] || `adult-warning.html?id=${encodeURIComponent(w.id)}`;
+    return `<a href="${href}" class="work"><span class="meta">${esc(w.couple)} / 🔞</span><strong>${esc(w.title)}</strong><em>${esc(w.description)}</em></a>`;
+  }).join("");
+}
+filters.addEventListener("click",e=>{if(e.target.matches("button"))render(e.target.dataset.filter)});
+render();
+</script>
+</body></html>

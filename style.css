@@ -409,3 +409,22 @@ main {
     font-size:.72rem;
   }
 }
+
+/* v18: three-size falling words */
+.word span{font-size:calc(1em * var(--size-scale));}
+.adult-door{margin:28px 0 0;font-size:.8rem}
+.adult-door a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
+.adult-door a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+.work{grid-template-columns: .9fr 1.15fr 2fr 1fr;}
+.work-extra{display:flex;gap:5px;flex-wrap:wrap;align-content:flex-start}
+.work-tag{font-size:.66rem;color:var(--muted);border:1px solid var(--line);padding:2px 6px}
+.work-caution{font-size:.68rem;color:var(--accent)}
+@media(max-width:680px){
+  .work{grid-template-columns:1fr;gap:3px}
+}
+
+.adult-gate{max-width:720px;margin-inline:auto;text-align:center}
+.adult-gate-actions{display:flex;gap:12px;justify-content:center;align-items:center;margin-top:28px;flex-wrap:wrap}
+.adult-gate-actions button,.adult-gate-actions a{padding:10px 17px;border:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;font-size:.82rem;text-decoration:none;cursor:pointer}
+.adult-gate-actions button{border-color:var(--accent)}
+.adult-gate-actions button:hover,.adult-gate-actions a:hover{background:rgba(214,164,95,.08)}
