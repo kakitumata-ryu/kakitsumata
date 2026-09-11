@@ -80,3 +80,28 @@ function startStream() {
 
 startStream();
 again.addEventListener("click", startStream);
+
+
+const filterButtons = document.querySelectorAll(".couple-filter");
+const workCards = document.querySelectorAll("#works-list .work");
+const filterEmpty = document.querySelector("#filter-empty");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const filter = button.dataset.filter;
+
+    filterButtons.forEach(b => {
+      b.classList.toggle("active", b === button);
+      b.setAttribute("aria-selected", b === button ? "true" : "false");
+    });
+
+    let visible = 0;
+    workCards.forEach(card => {
+      const show = filter === "all" || card.dataset.couple === filter;
+      card.hidden = !show;
+      if (show) visible++;
+    });
+
+    filterEmpty.hidden = visible !== 0;
+  });
+});

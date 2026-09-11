@@ -40,24 +40,39 @@
 
 <section id="novel" class="section">
   <div class="section-title"><span>01</span><h2>作品</h2></div>
-  <p class="hint">ちゃんと探したい人はこちら。</p>
-  <div class="works">
-    <a href="works/kashima3.html" class="work">
-      <span class="meta">龍が如く / 柏真</span>
+  <p class="hint">カプを選ぶと、その作品だけ表示されます。</p>
+
+  <div class="couple-filters" role="tablist" aria-label="カプで絞り込み">
+    <button class="couple-filter active" data-filter="all" type="button" role="tab" aria-selected="true">すべて</button>
+    <button class="couple-filter" data-filter="saema" type="button" role="tab" aria-selected="false">冴真</button>
+    <button class="couple-filter" data-filter="kirima" type="button" role="tab" aria-selected="false">桐真</button>
+    <button class="couple-filter" data-filter="kashima" type="button" role="tab" aria-selected="false">柏真</button>
+    <button class="couple-filter" data-filter="sagama" type="button" role="tab" aria-selected="false">佐真</button>
+    <button class="couple-filter" data-filter="nishima" type="button" role="tab" aria-selected="false">西真</button>
+    <button class="couple-filter" data-filter="noashima" type="button" role="tab" aria-selected="false">ノア真</button>
+    <button class="couple-filter" data-filter="other-majima" type="button" role="tab" aria-selected="false">その他真島関連</button>
+    <button class="couple-filter" data-filter="other-nonmajima" type="button" role="tab" aria-selected="false">その他真島以外</button>
+  </div>
+
+  <div class="works" id="works-list">
+    <a href="works/kashima3.html" class="work" data-couple="kashima">
+      <span class="meta">柏真</span>
       <strong>柏真3</strong>
       <em>「親父が変だ。最近。」</em>
     </a>
-    <a href="works/kasa.html" class="work">
-      <span class="meta">龍が如く / 冴真</span>
+    <a href="works/kasa.html" class="work" data-couple="saema">
+      <span class="meta">冴真</span>
       <strong>傘の使い方</strong>
       <em>「なんややなくて。みてぇコレ」</em>
     </a>
-    <a href="works/reimen.html" class="work">
-      <span class="meta">龍が如く / その他</span>
+    <a href="works/reimen.html" class="work" data-couple="other-majima">
+      <span class="meta">その他真島関連</span>
       <strong>冷麺放置プレイ</strong>
       <em>「冷麺はまだ食べてはいけない。」</em>
     </a>
   </div>
+
+  <p class="filter-empty" id="filter-empty" hidden>このカプの作品は、まだありません。</p>
 </section>
 
 <section id="archive" class="section">
