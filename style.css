@@ -18,9 +18,7 @@ main{max-width:980px;margin:auto;padding:0 20px}
 h1{font-weight:400;font-size:clamp(2.4rem,7vw,5rem);line-height:1.2;letter-spacing:.06em;margin:18px 0}
 .hero-copy p:not(.small){color:var(--muted);font-size:.9rem}
 .sky{position:absolute;inset:0;overflow:hidden}
-.word{position:absolute;top:-80px;text-decoration:none;cursor:pointer;white-space:nowrap;z-index:2;animation:fall var(--fall-time) cubic-bezier(.2,.7,.25,1) forwards}
-.word:hover{z-index:5}
-.word span{display:block;transition:transform .35s ease,opacity .25s ease}
+.word{position:absolute;top:-80px;text-decoration:none;cursor:pointer;white-space:nowrap;z-index:2;animation:fall var(--fall-time) linear forwards;transition:transform .35s ease,opacity .25s ease}
 .word:hover span{transform:scale(1.07);opacity:.75}
 .word::after{content:"拾う";position:absolute;left:50%;top:100%;transform:translateX(-50%);font-size:.58rem;letter-spacing:.15em;color:var(--accent);opacity:0;transition:opacity .2s}
 .word:hover::after,.word:focus-visible::after{opacity:1}
@@ -28,12 +26,12 @@ h1{font-weight:400;font-size:clamp(2.4rem,7vw,5rem);line-height:1.2;letter-spaci
 @keyframes fall{
   0%{
     opacity:0;
-    transform:translate3d(0,-28px,0) rotate(var(--rot));
+    transform:translate3d(0,-20px,0) rotate(var(--rot));
   }
-  8%{opacity:.88}
+  10%{opacity:.85}
   100%{
     opacity:.9;
-    transform:translate3d(0,var(--land),0) rotate(calc(var(--rot)*-.04));
+    transform:translate3d(var(--sway),var(--land),0) rotate(calc(var(--rot)*-1));
   }
 }
 @keyframes fadePile{
