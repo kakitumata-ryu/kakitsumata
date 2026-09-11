@@ -28,18 +28,14 @@ const fonts = {
   brush: '"Yu Mincho","Hiragino Mincho ProN",serif'
 };
 
-const MAX_WORDS = 18;
+const MAX_WORDS = 12;
 const FALL_TIME = 10500;
-const REST_TIME = 5000;
 let streamTimer = null;
 
 function addWord() {
   const active = [...sky.querySelectorAll(".word")];
-
-  // Keep a small pile rather than endlessly filling the screen.
   if (active.length >= MAX_WORDS) {
-    active[0].classList.add("fading");
-    window.setTimeout(() => active[0]?.remove(), 900);
+    active[0].remove();
   }
 
   const w = words[Math.floor(Math.random() * words.length)];
@@ -51,18 +47,10 @@ function addWord() {
   const sway = -38 + Math.random() * 76;
   const rot = -7 + Math.random() * 14;
 
-  // Each new word gets its own landing height, so they gently pile up.
-  const pile = sky.querySelectorAll(".word").length;
-  const pileOffset = Math.min(pile * 22, Math.max(0, sky.clientHeight - 110));
-  // Land near the actual bottom edge, leaving room for the pile to build upward.
-  const land = Math.max(40, sky.clientHeight - 72 - pileOffset + Math.random() * 14);
-
   a.style.left = `${left}%`;
   a.style.setProperty("--fall-time", `${FALL_TIME}ms`);
-  a.style.setProperty("--land", `${land}px`);
   a.style.setProperty("--sway", `${sway}px`);
   a.style.setProperty("--rot", `${rot}deg`);
-  a.style.setProperty("--rest", `${REST_TIME}ms`);
 
   const span = document.createElement("span");
   span.textContent = w.t;
@@ -70,18 +58,14 @@ function addWord() {
   a.appendChild(span);
   sky.appendChild(a);
 
-  // Keep long phrases fully inside the viewport instead of clipping at the sides.
   requestAnimationFrame(() => {
     const maxLeft = Math.max(8, sky.clientWidth - a.offsetWidth - 8);
     const targetLeft = Math.min(Math.max(8, (left / 100) * sky.clientWidth), maxLeft);
     a.style.left = `${targetLeft}px`;
   });
 
-  // After reaching the floor, keep it there for 5 seconds, then quietly disappear.
-  window.setTimeout(() => {
-    a.classList.add("fading");
-    window.setTimeout(() => a.remove(), 900);
-  }, FALL_TIME + REST_TIME);
+  // Let it continue past the bottom edge before removing it.
+  window.setTimeout(() => a.remove(), FALL_TIME + 400);
 }
 
 function startStream() {

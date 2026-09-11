@@ -31,7 +31,7 @@ h1{font-weight:400;font-size:clamp(2.4rem,7vw,5rem);line-height:1.2;letter-spaci
   10%{opacity:.85}
   100%{
     opacity:.9;
-    transform:translate3d(var(--sway),var(--land),0) rotate(calc(var(--rot)*-1));
+    transform:translate3d(var(--sway),calc(100vh + 120px),0) rotate(calc(var(--rot)*-1));
   }
 }
 @keyframes fadePile{
@@ -349,3 +349,6 @@ main {
     letter-spacing:.07em;
   }
 }
+
+/* v15: words do not pile up; they simply flow downward and disappear */
+.word.fading{animation:none}
