@@ -344,7 +344,7 @@ window.kakitsumataChime = function () {
       line1.textContent = pickRandomLine();
     }
 
-    const duration = mode === "succession" ? 6500 : mode === "retirement" ? 6000 : mode === "triple" ? 5000 : 4500;
+    const duration = mode === "succession" ? 6500 : mode === "retirement" ? 6000 : mode === "triple" ? 5000 : 3500;
     window.setTimeout(() => {
       overlay.classList.add("ceremony-fadeout");
       document.body.classList.remove("ceremony-active");
