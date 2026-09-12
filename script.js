@@ -77,13 +77,28 @@ document.addEventListener("DOMContentLoaded", () => {
       .filter(w => filter === "all" || w.couple === filter)
       .sort((a,b) => toHira(a.reading).localeCompare(toHira(b.reading), "ja"));
 
-    list.innerHTML = rows.map(w => `
+    list.innerHTML = rows.map(w => {
+      const tags = String(w.tags || "")
+        .split(/[,\u3001]/)
+        .map(v => v.trim())
+        .filter(Boolean)
+        .map(v => `<span class="work-tag">${esc(v)}</span>`)
+        .join("");
+      const caution = w.caution
+        ? `<span class="work-caution">${esc(w.caution)}</span>`
+        : "";
+      const extra = (tags || caution)
+        ? `<span class="work-extra">${tags}${caution}</span>`
+        : "";
+
+      return `
       <a href="${esc(w._href || "#")}" class="work">
         <span class="meta">${esc(w.couple)}</span>
         <strong>${esc(w.title)}</strong>
         <em>${esc(w.description || "")}</em>
-      </a>
-    `).join("");
+        ${extra}
+      </a>`;
+    }).join("");
 
     if (empty) empty.hidden = rows.length > 0;
   }
