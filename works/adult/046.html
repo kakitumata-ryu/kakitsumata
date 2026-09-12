@@ -216,13 +216,42 @@ fetch("../../texts/046.txt",{cache:"no-cache"})
   const splash = document.getElementById('adult-splash');
   const buttons = document.querySelectorAll('[data-adult-fun]');
   if (!splash || !buttons.length) return;
-  buttons.forEach(btn => btn.addEventListener('click', () => {
-    splash.classList.remove('active','yellow');
-    void splash.offsetWidth;
-    if (btn.dataset.adultFun === 'champagne') splash.classList.add('yellow');
-    splash.classList.add('active');
-    window.setTimeout(() => splash.classList.remove('active','yellow'), 2500);
-  }));
+
+  function makeDroplets(){
+    splash.querySelectorAll('.adult-droplet').forEach(el => el.remove());
+    const count = window.matchMedia('(max-width:680px)').matches ? 18 : 28;
+    for(let i=0;i<count;i++){
+      const d=document.createElement('i');
+      d.className='adult-droplet';
+      const angle=(Math.random()*Math.PI*2);
+      const distance=(window.innerWidth < 681 ? 90 : 130) + Math.random()*(window.innerWidth < 681 ? 120 : 260);
+      const dx=Math.cos(angle)*distance;
+      const dy=Math.sin(angle)*distance - (70+Math.random()*150);
+      d.style.setProperty('--dx', dx.toFixed(1)+'px');
+      d.style.setProperty('--dy', dy.toFixed(1)+'px');
+      d.style.setProperty('--rot', ((Math.random()*70)-35).toFixed(1)+'deg');
+      d.style.setProperty('--scale', (.55+Math.random()*.9).toFixed(2));
+      d.style.animationDelay=(Math.random()*.22).toFixed(2)+'s';
+      splash.appendChild(d);
+    }
+  }
+
+  buttons.forEach(btn => {
+    const fire = (ev) => {
+      if(ev) ev.preventDefault();
+      makeDroplets();
+      splash.classList.remove('active','yellow');
+      void splash.offsetWidth;
+      if(btn.dataset.adultFun === 'champagne') splash.classList.add('yellow');
+      splash.classList.add('active');
+      window.clearTimeout(splash._kktTimer);
+      splash._kktTimer=window.setTimeout(() => {
+        splash.classList.remove('active','yellow');
+      },4600);
+    };
+    btn.addEventListener('click',fire,{passive:false});
+    btn.addEventListener('touchend',fire,{passive:false});
+  });
 })();
 </script>
 
