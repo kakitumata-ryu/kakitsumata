@@ -14,7 +14,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/001.html"
   },
   {
     "id": "2",
@@ -31,7 +31,7 @@ window.records = [
     "adult": false,
     "grave": true,
     "caution": "",
-    "_href": ""
+    "_href": "works/002.html"
   },
   {
     "id": "3",
@@ -48,7 +48,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "過去捏造あり",
-    "_href": ""
+    "_href": "works/003.html"
   },
   {
     "id": "4",
@@ -65,7 +65,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/004.html"
   },
   {
     "id": "5",
@@ -82,7 +82,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/005.html"
   },
   {
     "id": "6",
@@ -99,7 +99,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "前編",
-    "_href": ""
+    "_href": "works/006.html"
   },
   {
     "id": "7",
@@ -116,7 +116,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "後編",
-    "_href": ""
+    "_href": "works/007.html"
   },
   {
     "id": "8",
@@ -133,7 +133,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/008.html"
   },
   {
     "id": "9",
@@ -150,11 +150,11 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/009.html"
   },
   {
     "id": "10",
-    "title": "眠り姫ネムヒメ",
+    "title": "眠り姫",
     "reading": "ねむりひめ",
     "couple": "ノア真",
     "description": "不思議な冒険を夢見る話",
@@ -167,7 +167,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/010.html"
   },
   {
     "id": "11",
@@ -184,7 +184,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/011.html"
   },
   {
     "id": "12",
@@ -201,7 +201,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/012.html"
   },
   {
     "id": "13",
@@ -218,7 +218,7 @@ window.records = [
     "adult": false,
     "grave": true,
     "caution": "",
-    "_href": ""
+    "_href": "works/013.html"
   },
   {
     "id": "14",
@@ -235,7 +235,7 @@ window.records = [
     "adult": false,
     "grave": true,
     "caution": "",
-    "_href": ""
+    "_href": "works/014.html"
   },
   {
     "id": "15",
@@ -252,7 +252,7 @@ window.records = [
     "adult": false,
     "grave": true,
     "caution": "",
-    "_href": ""
+    "_href": "works/015.html"
   },
   {
     "id": "16",
@@ -269,7 +269,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "微エロあり",
-    "_href": ""
+    "_href": "works/016.html"
   },
   {
     "id": "17",
@@ -286,7 +286,7 @@ window.records = [
     "adult": false,
     "grave": true,
     "caution": "",
-    "_href": ""
+    "_href": "works/017.html"
   },
   {
     "id": "18",
@@ -303,7 +303,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "微エロあり",
-    "_href": ""
+    "_href": "works/018.html"
   },
   {
     "id": "19",
@@ -320,7 +320,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/019.html"
   },
   {
     "id": "20",
@@ -337,7 +337,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "おまけあり",
-    "_href": ""
+    "_href": "works/020.html"
   },
   {
     "id": "21",
@@ -354,7 +354,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "『船出の日』のおまけ",
-    "_href": ""
+    "_href": "works/021.html"
   },
   {
     "id": "22",
@@ -371,7 +371,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/adult/022.html"
   },
   {
     "id": "23",
@@ -388,11 +388,11 @@ window.records = [
     "adult": false,
     "grave": true,
     "caution": "",
-    "_href": ""
+    "_href": "works/023.html"
   },
   {
     "id": "24",
-    "title": "酒の飲み方サケノカタ",
+    "title": "酒の飲み方",
     "reading": "さけののみかた",
     "couple": "桐真",
     "description": "味わい方を教える話",
@@ -405,7 +405,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/024.html"
   },
   {
     "id": "25",
@@ -439,7 +439,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/adult/026.html"
   },
   {
     "id": "27",
@@ -456,7 +456,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "『Re,member』シリーズ前編",
-    "_href": ""
+    "_href": "works/027.html"
   },
   {
     "id": "28",
@@ -473,7 +473,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "内容は、ほんと酷い地雷原",
-    "_href": ""
+    "_href": "works/adult/028.html"
   },
   {
     "id": "29",
@@ -490,7 +490,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/adult/029.html"
   },
   {
     "id": "30",
@@ -507,7 +507,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/030.html"
   },
   {
     "id": "31",
@@ -524,7 +524,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "微エロ？",
-    "_href": ""
+    "_href": "works/031.html"
   },
   {
     "id": "32",
@@ -541,7 +541,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/032.html"
   },
   {
     "id": "33",
@@ -558,7 +558,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/033.html"
   },
   {
     "id": "34",
@@ -575,7 +575,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/034.html"
   },
   {
     "id": "35",
@@ -592,7 +592,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "『Re,member』シリーズ後編",
-    "_href": ""
+    "_href": "works/035.html"
   },
   {
     "id": "36",
@@ -609,7 +609,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/adult/036.html"
   },
   {
     "id": "37",
@@ -626,7 +626,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/037.html"
   },
   {
     "id": "38",
@@ -643,7 +643,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/038.html"
   },
   {
     "id": "39",
@@ -660,7 +660,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/039.html"
   },
   {
     "id": "40",
@@ -677,11 +677,11 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/040.html"
   },
   {
     "id": "41",
-    "title": "おじいちゃんの失態シッタイ",
+    "title": "おじいちゃんの失態",
     "reading": "おじいちゃんのしったい",
     "couple": "ノア真",
     "description": "おじいちゃん頑張って",
@@ -711,7 +711,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/042.html"
   },
   {
     "id": "43",
@@ -728,7 +728,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/adult/043.html"
   },
   {
     "id": "44",
@@ -745,7 +745,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/adult/044.html"
   },
   {
     "id": "45",
@@ -762,7 +762,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/045.html"
   },
   {
     "id": "46",
@@ -779,7 +779,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/adult/046.html"
   },
   {
     "id": "47",
@@ -796,7 +796,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/047.html"
   },
   {
     "id": "48",
@@ -813,11 +813,11 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/048.html"
   },
   {
     "id": "49",
-    "title": "返しあわずに送りあうカエオク",
+    "title": "返しあわずに送りあう",
     "reading": "かえしあわずにおくりあう",
     "couple": "冴真",
     "description": "真が勝手にすれ違っていくタイプの冴真をくだしぁ",
@@ -830,7 +830,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/049.html"
   },
   {
     "id": "50",
@@ -847,7 +847,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/adult/050.html"
   },
   {
     "id": "51",
@@ -864,7 +864,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/051.html"
   },
   {
     "id": "52",
@@ -881,6 +881,6 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/052.html"
   }
 ];

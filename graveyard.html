@@ -2,36 +2,36 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>墓場 / カキツまた</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>墓場 | カキツまた</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="site-header">
-  <a href="index.html" class="brand">カキツまた <span>/ 如く二次創作</span></a>
+<header class="header">
+  <a class="logo" href="index.html">カキツまた / 如く二次創作</a>
 </header>
-<main class="page">
-  <h1>墓場</h1>
-  <p class="hint">現在の作品一覧から外した作品を置いています。</p>
-  <div id="graveyard-list" class="works-grid"></div>
+<main>
+<section class="section">
+  <div class="section-title"><span>墓場</span><h2>墓場</h2></div>
+  <p class="hint">現在の作品一覧から外した作品です。</p>
+  <div class="works" id="graveyard-list"></div>
+</section>
 </main>
 <script src="data.js"></script>
 <script>
-const list = document.getElementById("graveyard-list");
-const items = records.filter(r => r.grave);
-if (!items.length) {
-  list.innerHTML = '<p class="empty">墓場に作品はありません。</p>';
-} else {
-  items.sort((a,b) => (a.reading||a.title).localeCompare(b.reading||b.title, "ja"));
-  list.innerHTML = items.map(r => {
-    const href = r.adult ? 'adult-warning.html?id=' + encodeURIComponent(r.id) : (r._href || '#');
-    return '<article class="work-card">' +
-      '<div class="work-meta">' + (r.couple || '') + '</div>' +
-      '<h2><a href="' + href + '">' + r.title + '</a></h2>' +
-      (r.description ? '<p>' + r.description + '</p>' : '') +
-      '</article>';
-  }).join("");
-}
+const esc = s => String(s ?? "").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+const rows = (window.records || [])
+  .filter(w => w.grave)
+  .sort((a,b)=>String(a.reading||a.title).localeCompare(String(b.reading||b.title),"ja"));
+const list = document.querySelector("#graveyard-list");
+list.innerHTML = rows.map(w => {
+  const href = w.adult ? `adult-warning.html?id=${encodeURIComponent(w.id)}` : (w._href || "#");
+  return `<a href="${href}" class="work">
+    <span class="meta">${esc(w.couple)}</span>
+    <strong>${esc(w.title)}</strong>
+    <em>${esc(w.description || "")}</em>
+  </a>`;
+}).join("") || '<p class="filter-empty">墓場に作品はありません。</p>';
 </script>
 </body>
 </html>
