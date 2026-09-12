@@ -86,29 +86,65 @@ window.kakitsumataChime = function () {
   try {
     const AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) return;
+
     const ctx = window.__kakitsumataAudio || (window.__kakitsumataAudio = new AC());
     if (ctx.state === "suspended") ctx.resume();
 
     const now = ctx.currentTime;
     const master = ctx.createGain();
     master.gain.setValueAtTime(0.0001, now);
-    master.gain.exponentialRampToValueAtTime(0.035, now + 0.035);
+    master.gain.exponentialRampToValueAtTime(0.045, now + 0.015);
     master.gain.exponentialRampToValueAtTime(0.0001, now + 1.05);
     master.connect(ctx.destination);
 
-    [[880, 0.00, 0.72], [1320, 0.055, 0.92]].forEach(([freq, delay, dur]) => {
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = "sine";
-      osc.frequency.setValueAtTime(freq, now + delay);
-      gain.gain.setValueAtTime(0.0001, now + delay);
-      gain.gain.exponentialRampToValueAtTime(0.5, now + delay + 0.025);
-      gain.gain.exponentialRampToValueAtTime(0.0001, now + delay + dur);
-      osc.connect(gain);
-      gain.connect(master);
-      osc.start(now + delay);
-      osc.stop(now + delay + dur + 0.02);
-    });
+    // 水滴っぽい低い「ぽちゃん」本体
+    const body = ctx.createOscillator();
+    const bodyGain = ctx.createGain();
+    body.type = "sine";
+    body.frequency.setValueAtTime(520, now);
+    body.frequency.exponentialRampToValueAtTime(185, now + 0.32);
+    bodyGain.gain.setValueAtTime(0.0001, now);
+    bodyGain.gain.exponentialRampToValueAtTime(0.58, now + 0.012);
+    bodyGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.55);
+    body.connect(bodyGain);
+    bodyGain.connect(master);
+    body.start(now);
+    body.stop(now + 0.58);
+
+    // 水面に触れたあとの小さなきらめき
+    const sparkle = ctx.createOscillator();
+    const sparkleGain = ctx.createGain();
+    sparkle.type = "sine";
+    sparkle.frequency.setValueAtTime(1480, now + 0.045);
+    sparkle.frequency.exponentialRampToValueAtTime(960, now + 0.42);
+    sparkleGain.gain.setValueAtTime(0.0001, now + 0.045);
+    sparkleGain.gain.exponentialRampToValueAtTime(0.16, now + 0.065);
+    sparkleGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.72);
+    sparkle.connect(sparkleGain);
+    sparkleGain.connect(master);
+    sparkle.start(now + 0.045);
+    sparkle.stop(now + 0.75);
+
+    // ごく薄い空気感のノイズ
+    const buffer = ctx.createBuffer(1, ctx.sampleRate * 0.55, ctx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < data.length; i++) {
+      data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / data.length, 3);
+    }
+    const noise = ctx.createBufferSource();
+    const filter = ctx.createBiquadFilter();
+    const noiseGain = ctx.createGain();
+    filter.type = "lowpass";
+    filter.frequency.value = 3200;
+    noiseGain.gain.setValueAtTime(0.0001, now);
+    noiseGain.gain.exponentialRampToValueAtTime(0.055, now + 0.012);
+    noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.42);
+    noise.buffer = buffer;
+    noise.connect(filter);
+    filter.connect(noiseGain);
+    noiseGain.connect(master);
+    noise.start(now);
+    noise.stop(now + 0.55);
   } catch (_) {}
 };
 </script>

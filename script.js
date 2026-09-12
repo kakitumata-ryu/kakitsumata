@@ -47,13 +47,19 @@ document.addEventListener("DOMContentLoaded", () => {
       a.href = destination;
       a.addEventListener("click", (e) => {
         e.preventDefault();
+        if (a.classList.contains("word-selected")) return;
+
         a.classList.add("word-selected");
         if (window.kakitsumataChime) window.kakitsumataChime();
-        if (window.kakitsumataTransition) {
-          window.kakitsumataTransition.leaveTo(destination);
-        } else {
-          window.setTimeout(() => { window.location.href = destination; }, 980);
-        }
+
+        // 波紋と音の余韻を先に見せる。その後、1回だけ滑らかにぼかして遷移。
+        window.setTimeout(() => {
+          if (window.kakitsumataTransition) {
+            window.kakitsumataTransition.leaveTo(destination);
+          } else {
+            window.setTimeout(() => { window.location.href = destination; }, 760);
+          }
+        }, 1250);
       });
 
       a.style.left = `${4 + Math.random() * 82}%`;
