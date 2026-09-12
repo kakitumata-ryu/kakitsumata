@@ -20,6 +20,8 @@
 .reader-tools button.active,.reader-tools button:hover{color:var(--ink);border-color:var(--accent)}
 .novel-text{font-size:1rem;line-height:2.25;letter-spacing:.015em}
 .novel-text p{margin:0 0 1.45em}
+.novel-text p.dialogue{margin-bottom:.48em}
+.novel-text p.dialogue + p.dialogue{margin-top:-.08em}
 .novel-pagebreak{margin:4.5rem 0;text-align:center;color:var(--muted);letter-spacing:.45em}
 .novel-pagebreak::before,.novel-pagebreak::after{content:"";display:inline-block;width:72px;height:1px;background:var(--line);vertical-align:middle;margin:0 18px}
 .reader-error{padding:20px;border:1px solid var(--line);color:var(--muted)}
@@ -79,6 +81,7 @@ function renderBody(text){
     chunk.split("\n").filter(line=>line.trim()!=="").forEach(line=>{
       const p=document.createElement("p");
       p.textContent=line;
+      if (/^\s*[「『]/.test(line)) p.className="dialogue";
       article.appendChild(p);
     });
     el.appendChild(article);
