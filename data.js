@@ -19,7 +19,7 @@ window.records = [
   {
     "id": "2",
     "title": "なんか起きそう",
-    "reading": "なんか起きそうオ",
+    "reading": "なんか起きそう",
     "couple": "その他真島関連",
     "description": "気分で書いた。つづきはない",
     "tags": "",
@@ -311,7 +311,7 @@ window.records = [
     "reading": "かたち",
     "couple": "柏真",
     "description": "不確かなカタチの話",
-    "tags": "早書き",
+    "tags": "早書きチャレンジ",
     "falling": [
       "ヒヒヒ、似合わなっ！",
       "踏み台にしかなってへん",
@@ -422,7 +422,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/reimen.html"
   },
   {
     "id": "26",
@@ -430,7 +430,7 @@ window.records = [
     "reading": "ぐらんどはぷにんぐ",
     "couple": "その他真島以外",
     "description": "ホマレと乳揉まれキャバ嬢",
-    "tags": "西マキ,",
+    "tags": "西マキ,リクエスト",
     "falling": [
       "お気に入りのヒールを選ぶときに似ている",
       "一億円の一発",
@@ -485,7 +485,7 @@ window.records = [
     "falling": [
       "comeだ……！",
       "presentだ。できるな？",
-      "唸りをあげる一馬の"
+      "唸りをあげる一馬のドラゴン"
     ],
     "adult": true,
     "grave": false,
@@ -532,7 +532,7 @@ window.records = [
     "reading": "あめあがりのねつ",
     "couple": "桐真",
     "description": "雨に沈んだ町で二人が晴れ間を探す話",
-    "tags": "早書き",
+    "tags": "早書きチャレンジ",
     "falling": [
       "何もかもが煩わしかった",
       "かえろう、兄さん",
@@ -549,7 +549,7 @@ window.records = [
     "reading": "ひつぎ",
     "couple": "柏真",
     "description": "最期まで残しておきたかった話",
-    "tags": "早書き",
+    "tags": "早書きチャレンジ",
     "falling": [
       "えらい猫被りやんお茶目親父",
       "子供舌",
@@ -604,7 +604,7 @@ window.records = [
     "falling": [
       "カズマちゃん",
       "桐生一馬はわからぬ",
-      "この"
+      "このエロガキ"
     ],
     "adult": true,
     "grave": false,
@@ -667,7 +667,7 @@ window.records = [
     "title": "セボンスター",
     "reading": "せぼんすたー",
     "couple": "桐真",
-    "description": "みんなに慕われてるって",
+    "description": "みんなに慕われてるってコト",
     "tags": "早書きチャレンジ,桐組長if",
     "falling": [
       "俺はきっとこれが好きなのだろう",
@@ -694,7 +694,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": ""
+    "_href": "works/041.html"
   },
   {
     "id": "42",
@@ -766,13 +766,13 @@ window.records = [
   },
   {
     "id": "46",
-    "title": "昨日はおたのしみでしtね",
+    "title": "昨夜はおたのしみでしたね",
     "reading": "きのうはおたのしみでしたね",
     "couple": "桐真",
     "description": "お腹を押したかった",
-    "tags": "早書き",
+    "tags": "早書きチャレンジ",
     "falling": [
-      "なんでなにも覚えてねえ、",
+      "なんでなにも覚えてねえ、ッ",
       "どんまい",
       "下手くそなんよなあ"
     ],
@@ -787,10 +787,10 @@ window.records = [
     "reading": "おれごのみ",
     "couple": "冴真",
     "description": "巣作りっていい言葉",
-    "tags": "毎日冴真定例,",
+    "tags": "毎日冴真定例,オメガバース",
     "falling": [
       "きょおだいが悪いんや",
-      "むっつり、",
+      "むっつり、スケベ",
       "野山に紛れとる場合とちゃうんやぞ"
     ],
     "adult": false,
@@ -807,7 +807,7 @@ window.records = [
     "tags": "毎日冴真定例",
     "falling": [
       "話にならん。酔っ払い。",
-      "笑うな",
+      "笑うなアホ",
       ""
     ],
     "adult": false,
@@ -859,12 +859,12 @@ window.records = [
     "falling": [
       "実験中やねん",
       "濡れるやろ",
-      "みてぇ"
+      "みてぇコレ"
     ],
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/051.html"
+    "_href": "works/kasa.html"
   },
   {
     "id": "52",

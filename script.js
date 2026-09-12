@@ -50,14 +50,14 @@ document.addEventListener("DOMContentLoaded", () => {
       a.appendChild(span);
       sky.appendChild(a);
 
-      setTimeout(() => a.remove(), 12500);
+      setTimeout(() => a.remove(), 10000);
     }
 
     function startFalling() {
       clearInterval(timer);
       sky.innerHTML = "";
-      for (let i = 0; i < 5; i++) setTimeout(spawn, i * 650);
-      timer = setInterval(spawn, 2400);
+      for (let i = 0; i < 5; i++) setTimeout(spawn, i * 350);
+      timer = setInterval(spawn, 1500);
     }
 
     startFalling();
