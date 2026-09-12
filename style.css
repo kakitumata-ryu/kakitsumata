@@ -622,3 +622,112 @@ html.page-entered body{
   32%{opacity:.7}
   100%{transform:translate(-50%,-50%) scale(13);opacity:0}
 }
+
+
+/* access counter */
+.visitor-counter {
+  margin: 2.5rem auto 0;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  opacity: 0.72;
+}
+.visitor-counter strong {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+}
+
+
+/* 東城会アクセスカウンター */
+.header-counter {
+  margin-left: 1.2rem;
+  white-space: nowrap;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  opacity: 0.78;
+}
+.header-counter strong {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88rem;
+  letter-spacing: 0.1em;
+}
+
+/* 襲名・引退・連番・ランダム演出 */
+.ceremony-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,.94);
+  color: #fff;
+  opacity: 1;
+  transition: opacity 1.6s ease;
+}
+.ceremony-overlay[hidden] { display: none; }
+.ceremony-inner {
+  width: min(94vw, 1100px);
+  text-align: center;
+  padding: 2rem;
+}
+.ceremony-line {
+  margin: 0;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: ceremonyIn .7s ease forwards;
+  letter-spacing: .08em;
+}
+.ceremony-line1 { font-size: clamp(1.25rem, 3.4vw, 3rem); }
+.ceremony-line2 { font-size: clamp(2.8rem, 10vw, 8rem); font-weight: 700; margin-top: .5rem; }
+.ceremony-line3 { font-size: clamp(1rem, 2vw, 1.6rem); margin-top: 1rem; }
+.ceremony-line4 { font-size: 1rem; margin-top: 1rem; }
+.ceremony-succession .ceremony-line1 { animation-delay: .25s; }
+.ceremony-succession .ceremony-line2 { animation-delay: 1.25s; }
+.ceremony-succession .ceremony-line3 { animation-delay: 2.45s; }
+.ceremony-succession .ceremony-line1, .ceremony-succession .ceremony-line2, .ceremony-succession .ceremony-line3, .ceremony-retirement .ceremony-line1, .ceremony-retirement .ceremony-line2, .ceremony-retirement .ceremony-line3 { animation-name: ceremonyZoomIn; }
+.ceremony-retirement .ceremony-line1 { animation-delay: .25s; font-size: clamp(1.4rem, 4vw, 3.2rem); }
+.ceremony-retirement .ceremony-line2 { animation-delay: 1.15s; font-size: clamp(1.2rem, 4vw, 2.5rem); }
+.ceremony-retirement .ceremony-line3 { animation-delay: 1.9s; font-size: clamp(2.8rem, 10vw, 8rem); font-weight: 700; }
+.ceremony-triple .ceremony-line1 { font-size: clamp(2rem, 7vw, 6rem); animation-delay: .2s; }
+.ceremony-random .ceremony-line1 { font-size: clamp(1.4rem, 4vw, 3.2rem); animation-delay: .15s; }
+.ceremony-fadeout { opacity: 0; }
+@keyframes ceremonyIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes ceremonyZoomIn {
+  from { opacity: 0; transform: scale(.72); }
+  to { opacity: 1; transform: scale(1); }
+}
+@media (max-width: 700px) {
+  .header-counter { margin-left: 0; }
+}
+
+
+/* ローカルでindex.htmlを直接開いたときだけ出る演出テストパネル */
+.local-test-panel {
+  position: fixed;
+  left: 12px;
+  bottom: 12px;
+  z-index: 10000;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 8px;
+  background: rgba(20,20,20,.92);
+  color: #fff;
+  font-size: 12px;
+}
+.local-test-panel strong { margin-right: 3px; }
+.local-test-panel button {
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 5px;
+  padding: 4px 7px;
+  background: rgba(255,255,255,.08);
+  color: inherit;
+  cursor: pointer;
+}
+.local-test-panel button:hover { background: rgba(255,255,255,.16); }
