@@ -93,58 +93,70 @@ window.kakitsumataChime = function () {
     const now = ctx.currentTime;
     const master = ctx.createGain();
     master.gain.setValueAtTime(0.0001, now);
-    master.gain.exponentialRampToValueAtTime(0.045, now + 0.015);
-    master.gain.exponentialRampToValueAtTime(0.0001, now + 1.05);
+    master.gain.exponentialRampToValueAtTime(0.025, now + 0.03);
+    master.gain.exponentialRampToValueAtTime(0.0001, now + 1.55);
     master.connect(ctx.destination);
 
-    // 水滴っぽい低い「ぽちゃん」本体
-    const body = ctx.createOscillator();
-    const bodyGain = ctx.createGain();
-    body.type = "sine";
-    body.frequency.setValueAtTime(520, now);
-    body.frequency.exponentialRampToValueAtTime(185, now + 0.32);
-    bodyGain.gain.setValueAtTime(0.0001, now);
-    bodyGain.gain.exponentialRampToValueAtTime(0.58, now + 0.012);
-    bodyGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.55);
-    body.connect(bodyGain);
-    bodyGain.connect(master);
-    body.start(now);
-    body.stop(now + 0.58);
+    // 波紋に合わせた、やわらかな上行6音。
+    // 「ぽちゃん」よりも、水面に光が散るようなきらきら感を優先。
+    const notes = [
+      [659.25, 0.00, 0.48, 0.18], // E5
+      [783.99, 0.13, 0.50, 0.16], // G5
+      [987.77, 0.27, 0.54, 0.15], // B5
+      [1174.66,0.43, 0.58, 0.13], // D6
+      [1318.51,0.61, 0.66, 0.12], // E6
+      [1567.98,0.82, 0.92, 0.11]  // G6
+    ];
 
-    // 水面に触れたあとの小さなきらめき
-    const sparkle = ctx.createOscillator();
-    const sparkleGain = ctx.createGain();
-    sparkle.type = "sine";
-    sparkle.frequency.setValueAtTime(1480, now + 0.045);
-    sparkle.frequency.exponentialRampToValueAtTime(960, now + 0.42);
-    sparkleGain.gain.setValueAtTime(0.0001, now + 0.045);
-    sparkleGain.gain.exponentialRampToValueAtTime(0.16, now + 0.065);
-    sparkleGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.72);
-    sparkle.connect(sparkleGain);
-    sparkleGain.connect(master);
-    sparkle.start(now + 0.045);
-    sparkle.stop(now + 0.75);
+    notes.forEach(([freq, delay, dur, level], i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      const shimmer = ctx.createOscillator();
+      const shimmerGain = ctx.createGain();
 
-    // ごく薄い空気感のノイズ
-    const buffer = ctx.createBuffer(1, ctx.sampleRate * 0.55, ctx.sampleRate);
-    const data = buffer.getChannelData(0);
-    for (let i = 0; i < data.length; i++) {
-      data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / data.length, 3);
-    }
-    const noise = ctx.createBufferSource();
-    const filter = ctx.createBiquadFilter();
-    const noiseGain = ctx.createGain();
-    filter.type = "lowpass";
-    filter.frequency.value = 3200;
-    noiseGain.gain.setValueAtTime(0.0001, now);
-    noiseGain.gain.exponentialRampToValueAtTime(0.055, now + 0.012);
-    noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.42);
-    noise.buffer = buffer;
-    noise.connect(filter);
-    filter.connect(noiseGain);
-    noiseGain.connect(master);
-    noise.start(now);
-    noise.stop(now + 0.55);
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(freq, now + delay);
+
+      // ごく薄い倍音を重ねて、ガラスのようなきらめきを作る。
+      shimmer.type = "sine";
+      shimmer.frequency.setValueAtTime(freq * 2, now + delay);
+
+      gain.gain.setValueAtTime(0.0001, now + delay);
+      gain.gain.exponentialRampToValueAtTime(level, now + delay + 0.025);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + delay + dur);
+
+      shimmerGain.gain.setValueAtTime(0.0001, now + delay);
+      shimmerGain.gain.exponentialRampToValueAtTime(level * 0.18, now + delay + 0.035);
+      shimmerGain.gain.exponentialRampToValueAtTime(0.0001, now + delay + dur * 0.85);
+
+      osc.connect(gain);
+      gain.connect(master);
+      shimmer.connect(shimmerGain);
+      shimmerGain.connect(master);
+
+      osc.start(now + delay);
+      osc.stop(now + delay + dur + 0.03);
+      shimmer.start(now + delay);
+      shimmer.stop(now + delay + dur + 0.03);
+    });
+
+    // 最後にほんの一瞬だけ高音の粒を散らす。
+    [2093.00, 2349.32, 2637.02].forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      const t = now + 1.02 + i * 0.07;
+
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(freq, t);
+      gain.gain.setValueAtTime(0.0001, t);
+      gain.gain.exponentialRampToValueAtTime(0.035, t + 0.01);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.18);
+
+      osc.connect(gain);
+      gain.connect(master);
+      osc.start(t);
+      osc.stop(t + 0.2);
+    });
   } catch (_) {}
 };
 </script>
