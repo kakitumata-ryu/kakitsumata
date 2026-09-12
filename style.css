@@ -1013,3 +1013,16 @@ html.page-entered body{
   .kkt-notification-avatar{width:34px;height:34px;font-size:16px}
   .kkt-notification-message{font-size:.84rem}
 }
+
+/* KAKITSUMATA_NOTIFICATION_REPLIES_V85 */
+.kkt-notification.is-interactive{cursor:pointer}
+.kkt-notification.is-interactive:focus-visible{outline:2px solid rgba(255,255,255,.8);outline-offset:2px}
+.kkt-notification-choices{grid-column:2 / 4;display:grid;gap:6px;margin-top:9px;padding-top:8px;border-top:1px solid rgba(255,255,255,.10)}
+.kkt-notification-choice{width:100%;border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:8px 10px;background:rgba(255,255,255,.07);color:#fff;text-align:left;font:inherit;font-size:.78rem;line-height:1.35;cursor:pointer;transition:background .15s ease,transform .15s ease}
+.kkt-notification-choice:hover,.kkt-notification-choice:focus-visible{background:rgba(255,255,255,.14);outline:none;transform:translateY(-1px)}
+.kkt-notification-reply{padding-top:1px;font-size:.84rem;line-height:1.5;font-weight:600;color:#fff}
+@media(max-width:680px){
+  .kkt-notification-choices{grid-column:1 / -1;margin-top:7px}
+  .kkt-notification-choice{font-size:.77rem;padding:9px 10px}
+  .kkt-notification-reply{font-size:.82rem}
+}

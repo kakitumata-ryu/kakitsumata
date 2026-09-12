@@ -79,7 +79,7 @@
 
 <section id="about" class="section">
   <div class="section-title"><span>03</span><h2>ここについて</h2></div>
-  <p>ここはカキツハタがまた性懲りもなく書いたものを適当に放り込んでおく場所です。</p>
+  <p>ここはカキツ、またが書いたものを適当に放り込んでおく場所です。</p>
   <p>作品を読んだり、変な一文を拾ったりしてください。</p>
 </section>
 
@@ -222,7 +222,7 @@ window.kakitsumataChime = function () {
     generation = count - 1;
   } else if (count > 0 && /^([0-9])\1\1+$/.test(String(count))) mode = "triple";
   else if (forcedRandom) mode = "random";
-  else if (Math.random() < 0.05) mode = "random";
+  else if (Math.random() < 0.03) mode = "random";
 
   if (!mode) return;
 
@@ -270,7 +270,7 @@ window.kakitsumataChime = function () {
   }
 
   // 表示を最後まで見せてから通常画面へ戻す。
-  const duration = mode === "succession" ? 6500 : mode === "retirement" ? 6000 : mode === "triple" ? 5000 : 3500;
+  const duration = mode === "succession" ? 6500 : mode === "retirement" ? 6000 : mode === "triple" ? 5000 : 4500;
   window.setTimeout(() => {
     overlay.classList.add("ceremony-fadeout");
     document.body.classList.remove("ceremony-active");
