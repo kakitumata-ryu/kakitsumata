@@ -731,3 +731,125 @@ html.page-entered body{
   cursor: pointer;
 }
 .local-test-panel button:hover { background: rgba(255,255,255,.16); }
+
+
+/* 成人向けページ限定：🐳 / 🥂 お遊びボタン */
+.adult-fun-buttons{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:10001;
+  display:flex;
+  gap:8px;
+}
+.adult-fun-button{
+  width:48px;height:48px;padding:0;
+  border:1px solid var(--line);
+  border-radius:50%;
+  background:rgba(21,26,31,.92);
+  color:var(--ink);
+  font:inherit;font-size:1.45rem;line-height:1;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+  box-shadow:0 6px 22px rgba(0,0,0,.2);
+  transition:transform .18s ease,border-color .18s ease;
+}
+.adult-fun-button:hover,.adult-fun-button:focus-visible{
+  transform:translateY(-3px) scale(1.04);
+  border-color:var(--accent);outline:none
+}
+.adult-fun-button:active{transform:scale(.95)}
+
+.adult-splash{
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  pointer-events:none;
+  overflow:hidden;
+  opacity:0;
+  visibility:hidden;
+}
+.adult-splash.active{
+  opacity:1;
+  visibility:visible;
+  animation:adultSplashIn 4.5s ease forwards;
+}
+.adult-splash::before{
+  content:"";
+  position:absolute;
+  left:50%;top:63%;
+  width:38vmin;height:38vmin;
+  border-radius:50%;
+  border:clamp(7px,1.5vmin,16px) solid rgba(220,245,255,.75);
+  transform:translate(-50%,-50%) scale(.08);
+  opacity:0;
+  box-shadow:0 0 34px rgba(150,220,255,.25);
+}
+.adult-splash.active::before{
+  animation:adultRipple 3.8s cubic-bezier(.15,.65,.25,1) forwards;
+}
+.adult-splash.yellow::before{
+  border-color:rgba(235,214,112,.72);
+  box-shadow:0 0 34px rgba(220,190,70,.18);
+}
+.adult-droplet{
+  position:absolute;
+  left:50%;top:63%;
+  width:clamp(5px,1.5vw,12px);
+  height:clamp(8px,2.2vw,18px);
+  border-radius:60% 60% 55% 55%;
+  background:rgba(235,250,255,.88);
+  opacity:0;
+  transform:translate(-50%,-50%) scale(.35);
+  will-change:transform,opacity;
+}
+.adult-splash.yellow .adult-droplet{background:rgba(244,219,112,.88)}
+.adult-splash.active .adult-droplet{
+  animation:adultDropletFly 3.3s cubic-bezier(.12,.65,.25,1) forwards;
+}
+@keyframes adultSplashIn{
+  0%{opacity:0;visibility:visible}
+  8%{opacity:1}
+  78%{opacity:1}
+  100%{opacity:0;visibility:hidden}
+}
+@keyframes adultRipple{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.08)}
+  12%{opacity:.9}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(2.6)}
+}
+@keyframes adultDropletFly{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.35)}
+  10%{opacity:1}
+  58%{opacity:.82}
+  100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) rotate(var(--rot)) scale(var(--scale))}
+}
+@media(max-width:680px){
+  .adult-fun-buttons{right:10px;bottom:10px;gap:6px}
+  .adult-fun-button{width:46px;height:46px;font-size:1.3rem}
+  .adult-splash::before{width:44vmin;height:44vmin;top:62%}
+  .adult-droplet{top:62%;width:7px;height:12px}
+}
+
+/* KAKITSUMATA_TEXT_EFFECTS_CSS_V74 */
+.effect-h1{display:block;font-size:clamp(2rem,6vw,4.2rem);font-weight:800;line-height:1.2;margin:1.5em 0 .8em}
+.effect-big{font-size:2em;font-weight:700;line-height:1.25}
+.effect-small{font-size:.7em;opacity:.82}
+.effect-shake{display:inline-block;animation:kktShake .12s linear infinite}
+.effect-fade{display:inline-block;animation:kktFade 1.2s ease both}
+.effect-impact{display:inline-block;font-weight:800;animation:kktImpact 1.1s cubic-bezier(.2,.9,.2,1) both}
+.effect-wave{display:inline-block;animation:kktWave 1.8s ease-in-out infinite}
+.effect-bounce{display:inline-block;animation:kktBounce 1.1s ease-in-out both}
+.effect-blink{animation:kktBlink 1s step-end infinite}
+.effect-type{display:inline-block;overflow:hidden;white-space:nowrap;vertical-align:bottom;max-width:0;animation:kktType 2.2s steps(24,end) forwards}
+.effect-spin{display:inline-block;animation:kktSpin .9s ease both}
+.effect-red{font-weight:700}
+@keyframes kktShake{0%,100%{transform:translate(0,0)}25%{transform:translate(-2px,1px) rotate(-1deg)}50%{transform:translate(2px,-1px) rotate(1deg)}75%{transform:translate(-1px,-1px)}}
+@keyframes kktFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes kktImpact{0%{opacity:0;transform:scale(.2)}60%{opacity:1;transform:scale(1.16)}100%{transform:scale(1)}}
+@keyframes kktWave{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-3px) rotate(1deg)}}
+@keyframes kktBounce{0%{transform:translateY(-18px);opacity:0}55%{transform:translateY(4px);opacity:1}75%{transform:translateY(-2px)}100%{transform:translateY(0)}}
+@keyframes kktBlink{0%,48%{opacity:1}49%,100%{opacity:.12}}
+@keyframes kktType{from{max-width:0}to{max-width:100ch}}
+@keyframes kktSpin{from{transform:rotate(-12deg) scale(.85);opacity:0}to{transform:none;opacity:1}}

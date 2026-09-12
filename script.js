@@ -144,3 +144,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderWorks();
 });
+
+/* KAKITSUMATA_TEXT_EFFECTS_V74 */
+(function(){
+  const pairs=[
+    ["H1","effect-h1"],["BIG","effect-big"],["SMALL","effect-small"],
+    ["SHAKE","effect-shake"],["FADE","effect-fade"],["IMPACT","effect-impact"],
+    ["WAVE","effect-wave"],["BOUNCE","effect-bounce"],["BLINK","effect-blink"],
+    ["TYPE","effect-type"],["SPIN","effect-spin"],["RED","effect-red"]
+  ];
+  function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  function apply(root){
+    if(!root||root.dataset.kktFx==="1") return;
+    root.dataset.kktFx="1";
+    const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT), ns=[];
+    while(w.nextNode()) ns.push(w.currentNode);
+    ns.forEach(n=>{
+      let r=esc(n.nodeValue), changed=false;
+      pairs.forEach(([tag,cls])=>{
+        const q=new RegExp("\\\\["+tag+"\\\\]([\\\\s\\\\S]*?)\\\\[\\\\/"+tag+"\\\\]","g");
+        const x=r.replace(q,'<span class="'+cls+'">$1</span>');
+        if(x!==r){r=x;changed=true;}
+      });
+      if(changed){const el=document.createElement("span");el.innerHTML=r;n.parentNode.replaceChild(el,n);}
+    });
+  }
+  window.KakitsumataApplyTextEffects=apply;
+  document.addEventListener("DOMContentLoaded",()=>document.querySelectorAll(".work-body,.reader-body,.text-body,article").forEach(apply));
+})();
