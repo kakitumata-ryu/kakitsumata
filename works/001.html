@@ -21,6 +21,7 @@
 .novel-text{font-size:1rem;line-height:2.25;letter-spacing:.015em}
 .novel-text p{margin:0 0 1.45em}
 .novel-text p.dialogue{margin-bottom:.48em}
+.novel-text .blank-line{height:1.15em}
 .novel-text p.dialogue + p.dialogue{margin-top:-.08em}
 .novel-pagebreak{margin:4.5rem 0;text-align:center;color:var(--muted);letter-spacing:.45em}
 .novel-pagebreak::before,.novel-pagebreak::after{content:"";display:inline-block;width:72px;height:1px;background:var(--line);vertical-align:middle;margin:0 18px}
@@ -78,11 +79,32 @@ function renderBody(text){
   chunks.forEach((chunk,i)=>{
     const article=document.createElement("div");
     article.className="novel-part";
-    chunk.split("\n").filter(line=>line.trim()!=="").forEach(line=>{
+    const lines = chunk.split("\n");
+    let pendingBlank = 0;
+    lines.forEach(line=>{
+      if (line.trim()==="") {
+        pendingBlank++;
+        return;
+      }
+
+      while (pendingBlank > 0) {
+        const spacer = document.createElement("div");
+        spacer.className = "blank-line";
+        article.appendChild(spacer);
+        pendingBlank--;
+      }
+
       const p=document.createElement("p");
       p.textContent=line;
       if (/^\s*[「『]/.test(line)) p.className="dialogue";
       article.appendChild(p);
+    });
+
+    while (pendingBlank > 0) {
+      const spacer = document.createElement("div");
+      spacer.className = "blank-line";
+      article.appendChild(spacer);
+      pendingBlank--;
     });
     el.appendChild(article);
     if(i<chunks.length-1){
