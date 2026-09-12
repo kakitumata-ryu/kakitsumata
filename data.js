@@ -1,37 +1,43 @@
-window.SITE_WORKS = [
+const records = [
   {
     "id": "1",
     "title": "われ、ほがらか也ナリ",
     "reading": "われほがらかなり",
-    "couple": "佐真",
+    "couple": "佐真サマ",
     "description": "処女作。佐川が真島に名前をあげる話ショジョサクサガワマジマナマエハナシ",
-    "tags": "いやさ、恥ずかしいじゃんハ",
+    "tags": "",
     "falling": [
-      "貰いもんの飼い犬に親しみを込めてモラカイイヌシタコ"
+      "いやさ、恥ずかしいじゃんハ",
+      "貰いもんの飼い犬に親しみを込めてモラカイイヌシタコ",
+      ""
     ],
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/001.html"
+    "_href": ""
   },
   {
     "id": "2",
     "title": "なんか起きそうオ",
     "reading": "なんか起きそうオ",
-    "couple": "その他真島関連",
+    "couple": "その他真島関連タマジマカンレン",
     "description": "気分で書いた。つづきはないキブンカ",
-    "tags": "いいえ",
-    "falling": [],
+    "tags": "",
+    "falling": [
+      "",
+      "",
+      ""
+    ],
     "adult": false,
-    "grave": false,
+    "grave": true,
     "caution": "",
-    "_href": "works/002.html"
+    "_href": ""
   },
   {
     "id": "3",
     "title": "プリンとホルモン、それから",
     "reading": "ぷりんとほるもん、それから",
-    "couple": "冴真",
+    "couple": "冴真サエマ",
     "description": "恨みにまつわる二人のお話ウラフタリハナシ",
     "tags": "お気に入りキイ",
     "falling": [
@@ -42,13 +48,13 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "過去捏造ありカコネツゾウ",
-    "_href": "works/003.html"
+    "_href": ""
   },
   {
     "id": "4",
     "title": "Twitterごっこ",
     "reading": "ついったーごっこ",
-    "couple": "桐真",
+    "couple": "桐真キリマ",
     "description": "SNSで繋がり通づけていた二人のお話ツナツウフタリハナシ",
     "tags": "真島誕マジマタン",
     "falling": [
@@ -59,13 +65,13 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/004.html"
+    "_href": ""
   },
   {
     "id": "5",
     "title": "特別な日の心残りトクベツヒココロノコ",
     "reading": "とくべつなひのこころのこり",
-    "couple": "佐真",
+    "couple": "佐真サマ",
     "description": "心残りを漸く清算できた話ココロノコヨウヤセイサン",
     "tags": "真島誕,生存ifマジマタンセイゾン",
     "falling": [
@@ -76,13 +82,13 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/005.html"
+    "_href": ""
   },
   {
     "id": "6",
     "title": "深夜2時の避難場所シンヤジヒナンバショ",
     "reading": "しんやにじのひなんばしょ",
-    "couple": "柏真",
+    "couple": "柏真カシワマ",
     "description": "たった一日、一か所だけの逃げ場の話イチニチイッショニバハナシ",
     "tags": "真島誕,連作マジマタンレンサク",
     "falling": [
@@ -93,28 +99,30 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "前編ゼンペン",
-    "_href": "works/006.html"
+    "_href": ""
   },
   {
     "id": "7",
     "title": "ずっとずうっと先の話サキハナシ",
     "reading": "しんやにじのひなんばしょ２",
-    "couple": "柏真",
+    "couple": "柏真カシワマ",
     "description": "深夜2時の避難場所。その先の話。シンヤジヒナンバショサキハナシ",
     "tags": "真島誕,連作マジマタンレンサク",
     "falling": [
-      "後編コウヘン"
+      "",
+      "",
+      ""
     ],
     "adult": false,
     "grave": false,
-    "caution": "",
-    "_href": "works/007.html"
+    "caution": "後編コウヘン",
+    "_href": ""
   },
   {
     "id": "8",
     "title": "エンジ色の太陽イロタイヨウ",
     "reading": "えんじいろのたいよう",
-    "couple": "西真",
+    "couple": "西真ニシマ",
     "description": "温もりにほんの少しだけ救われる話ヌクスコスクハナシ",
     "tags": "真島誕マジマタン",
     "falling": [
@@ -125,29 +133,30 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/008.html"
+    "_href": ""
   },
   {
     "id": "9",
     "title": "年に一度のハッピーデイネンイチド",
     "reading": "ねんにいちどのはっぴーでい",
-    "couple": "その他真島関連",
+    "couple": "その他真島関連タマジマカンレン",
     "description": "親父の誕生日を祝いたい子の話オヤジタンジョウビイワコハナシ",
     "tags": "真島誕,お気に入りマジマタンキイ",
     "falling": [
       "ぬーん、全然思い出せんゼンゼンオモダ",
-      "これが限界ですよぉ～！ゲンカイ"
+      "これが限界ですよぉ～！ゲンカイ",
+      ""
     ],
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/009.html"
+    "_href": ""
   },
   {
     "id": "10",
     "title": "眠り姫ネムヒメ",
     "reading": "ねむりひめ",
-    "couple": "",
+    "couple": "ノア真マ",
     "description": "不思議な冒険を夢見る話フシギボウケンユメミハナシ",
     "tags": "真島誕マジマタン",
     "falling": [
@@ -158,29 +167,30 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/010.html"
+    "_href": ""
   },
   {
     "id": "11",
     "title": "掃除のおばちゃんソウジ",
     "reading": "そうじのおばちゃん",
-    "couple": "その他真島以外",
+    "couple": "その他真島以外タマジマイガイ",
     "description": "何でかいたの？ナン",
-    "tags": "可哀想じゃん、掃除のおばちゃんがよカワイソウソウジ",
+    "tags": "",
     "falling": [
+      "可哀想じゃん、掃除のおばちゃんがよカワイソウソウジ",
       "今、会いに行きます♡イマアイ",
       "ああ、掃除しなくっちゃソウジ"
     ],
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/011.html"
+    "_href": ""
   },
   {
     "id": "12",
     "title": "プレゼントは始めからハジ",
     "reading": "ぷれぜんとははじめから",
-    "couple": "冴真",
+    "couple": "冴真サエマ",
     "description": "今年もプレゼントをもらえた話コトシハナシ",
     "tags": "真島誕マジマタン",
     "falling": [
@@ -191,52 +201,64 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/012.html"
+    "_href": ""
   },
   {
     "id": "13",
     "title": "ライブネタ１",
     "reading": "らいぶねた１",
-    "couple": "その他真島関連",
+    "couple": "その他真島関連タマジマカンレン",
     "description": "ライブレポもどきで書いたやつカ",
     "tags": "ライブ",
-    "falling": [],
+    "falling": [
+      "",
+      "",
+      ""
+    ],
     "adult": false,
-    "grave": false,
+    "grave": true,
     "caution": "",
-    "_href": "works/013.html"
+    "_href": ""
   },
   {
     "id": "14",
     "title": "ライブネタ２",
     "reading": "らいぶねた２",
-    "couple": "その他真島関連",
+    "couple": "その他真島関連タマジマカンレン",
     "description": "ライブレポもどきで書いたやつカ",
     "tags": "ライブ",
-    "falling": [],
+    "falling": [
+      "",
+      "",
+      ""
+    ],
     "adult": false,
-    "grave": false,
+    "grave": true,
     "caution": "",
-    "_href": "works/014.html"
+    "_href": ""
   },
   {
     "id": "15",
     "title": "ライブネタ３",
     "reading": "らいぶねた３",
-    "couple": "その他真島関連",
+    "couple": "その他真島関連タマジマカンレン",
     "description": "ライブレポもどきで書いたやつカ",
     "tags": "ライブ",
-    "falling": [],
+    "falling": [
+      "",
+      "",
+      ""
+    ],
     "adult": false,
-    "grave": false,
+    "grave": true,
     "caution": "",
-    "_href": "works/015.html"
+    "_href": ""
   },
   {
     "id": "16",
     "title": "名前を呼んでナマエヨ",
     "reading": "なまえをよんで",
-    "couple": "佐真",
+    "couple": "佐真サマ",
     "description": "ふたつの名前の間で揺れる話ナマエアイダユハナシ",
     "tags": "R-15",
     "falling": [
@@ -247,26 +269,30 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "微エロありビ",
-    "_href": "works/016.html"
+    "_href": ""
   },
   {
     "id": "17",
     "title": "名前を呼んでナマエヨ",
     "reading": "なまえをよんで",
-    "couple": "佐真",
+    "couple": "佐真サマ",
     "description": "一端ちょっと全年齢に寄せてた差分イッタンゼンネンレイヨサブン",
-    "tags": "いいえ",
-    "falling": [],
+    "tags": "",
+    "falling": [
+      "",
+      "",
+      ""
+    ],
     "adult": false,
-    "grave": false,
+    "grave": true,
     "caution": "",
-    "_href": "works/017.html"
+    "_href": ""
   },
   {
     "id": "18",
     "title": "掃除のおばちゃんの娘ソウジムスメ",
     "reading": "そうじのおばちゃんのむすめ",
-    "couple": "その他真島以外",
+    "couple": "その他真島以外タマジマイガイ",
     "description": "何で続いた？ナンツヅ",
     "tags": "R-15",
     "falling": [
@@ -277,29 +303,30 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "微エロありビ",
-    "_href": "works/018.html"
+    "_href": ""
   },
   {
     "id": "19",
     "title": "カタチ",
     "reading": "かたち",
-    "couple": "柏真",
+    "couple": "柏真カシワマ",
     "description": "不確かなカタチの話フタシハナシ",
     "tags": "早書きチャレンジハヤカ",
     "falling": [
       "ヒヒヒ、似合わなっ！ニア",
-      "踏み台にしかなってへんフダイ"
+      "踏み台にしかなってへんフダイ",
+      ""
     ],
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/019.html"
+    "_href": ""
   },
   {
     "id": "20",
     "title": "船出の日フナデヒ",
     "reading": "ふなでのひ",
-    "couple": "",
+    "couple": "ノア真マ",
     "description": "少年へ、夢と希望を伝える話ショウネンユメキボウツタハナシ",
     "tags": "ノア誕,お気に入りタンキイ",
     "falling": [
@@ -310,28 +337,30 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "おまけあり",
-    "_href": "works/020.html"
+    "_href": ""
   },
   {
     "id": "21",
     "title": "まだ見ぬ君へミキミ",
     "reading": "ふなでのひ２",
-    "couple": "",
+    "couple": "ノア真マ",
     "description": "失われてしまった記憶の中で確かに繋がっていた話ウシナキオクナカタシツナハナシ",
     "tags": "ノア誕,お気に入りタンキイ",
     "falling": [
-      "『船出の日』のおまけフナデヒ"
+      "",
+      "",
+      ""
     ],
     "adult": false,
     "grave": false,
-    "caution": "",
-    "_href": "works/021.html"
+    "caution": "『船出の日』のおまけフナデヒ",
+    "_href": ""
   },
   {
     "id": "22",
     "title": "Dangerous Butterfly and Moth",
     "reading": "でんじゃらすばらふらいあんどもす",
-    "couple": "西真",
+    "couple": "西真ニシマ",
     "description": "なぜか初書きエッチなのに、時空をゆがめてゴロ美にしたハツカジクウミ",
     "tags": "未完ミカン",
     "falling": [
@@ -342,26 +371,30 @@ window.SITE_WORKS = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/022.html"
+    "_href": ""
   },
   {
     "id": "23",
     "title": "センチネルバース",
     "reading": "せんちなるばーす",
-    "couple": "その他真島関連",
+    "couple": "その他真島関連タマジマカンレン",
     "description": "カプすら決まってない。続かないキツヅ",
     "tags": "未完ミカン",
-    "falling": [],
+    "falling": [
+      "",
+      "",
+      ""
+    ],
     "adult": false,
-    "grave": false,
+    "grave": true,
     "caution": "",
-    "_href": "works/023.html"
+    "_href": ""
   },
   {
     "id": "24",
     "title": "酒の飲み方サケノカタ",
     "reading": "さけののみかた",
-    "couple": "桐真",
+    "couple": "桐真キリマ",
     "description": "味わい方を教える話アジカタオシハナシ",
     "tags": "桐誕キリタン",
     "falling": [
@@ -372,29 +405,30 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/024.html"
+    "_href": ""
   },
   {
     "id": "25",
     "title": "冷麺放置プレイレイメンホウチ",
     "reading": "れいめんほうちぷれい",
-    "couple": "柏真",
+    "couple": "柏真カシワマ",
     "description": "ナニコレ",
     "tags": "早書きチャレンジ,リクエスト？ハヤカ",
     "falling": [
       "柏木っは、冷麺を作っていた──！カシワギレイメンツク",
-      "冷麺にする？レイメン"
+      "冷麺にする？レイメン",
+      ""
     ],
-    "adult": false,
+    "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/025.html"
+    "_href": ""
   },
   {
     "id": "26",
     "title": "グランドハプニング",
     "reading": "ぐらんどはぷにんぐ",
-    "couple": "その他真島以外",
+    "couple": "その他真島以外タマジマイガイ",
     "description": "ホマレと乳揉まれキャバ嬢チチモジョウ",
     "tags": "西マキ,リクエストニシ",
     "falling": [
@@ -405,13 +439,13 @@ window.SITE_WORKS = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/026.html"
+    "_href": ""
   },
   {
     "id": "27",
     "title": "今日からまた、キョウ",
     "reading": "りめんばー１",
-    "couple": "その他真島関連",
+    "couple": "その他真島関連タマジマカンレン",
     "description": "失っていたものを手に入れなおす話ウシナテイハナシ",
     "tags": "真マコ,連作マレンサク",
     "falling": [
@@ -422,13 +456,13 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "『Re,member』シリーズ前編ゼンペン",
-    "_href": "works/027.html"
+    "_href": ""
   },
   {
     "id": "28",
     "title": "桐生が全部、悪いのであるキリュウゼンブワル",
     "reading": "きりゅうがぜんぶわるいのである",
-    "couple": "その他真島関連",
+    "couple": "その他真島関連タマジマカンレン",
     "description": "桐生ちゃんが全部悪かっただけの話キリュウゼンブワルハナシ",
     "tags": "桐真錦,桐誕キリマニシキキリタン",
     "falling": [
@@ -439,13 +473,13 @@ window.SITE_WORKS = [
     "adult": true,
     "grave": false,
     "caution": "内容は、ほんと酷い地雷原ナイヨウヒドジライゲン",
-    "_href": "works/028.html"
+    "_href": ""
   },
   {
     "id": "29",
     "title": "入れ替わっても君だからイカキミ",
     "reading": "いれかわってもきみだから",
-    "couple": "桐真",
+    "couple": "桐真キリマ",
     "description": "どむさぶすいっちなるばーす",
     "tags": "リクエスト,DomSub",
     "falling": [
@@ -456,29 +490,30 @@ window.SITE_WORKS = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/029.html"
+    "_href": ""
   },
   {
     "id": "30",
     "title": "夏に至るナツイタ",
     "reading": "なつにいたる",
-    "couple": "冴真",
+    "couple": "冴真サエマ",
     "description": "六月に動けなくなる話ロクガツウゴハナシ",
     "tags": "夏至ゲシ",
     "falling": [
       "でんきけしてくれや",
-      "でもな、お前がおるなら、"
+      "でもな、お前がおるなら、",
+      ""
     ],
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/030.html"
+    "_href": ""
   },
   {
     "id": "31",
     "title": "この短い生の中でセイナカ",
     "reading": "このみじかいせいのなかで",
-    "couple": "その他真島以外",
+    "couple": "その他真島以外タマジマイガイ",
     "description": "冷麺の夢小説（？）レイメンユメショウセツ",
     "tags": "柏冷,リクエスト？,R-15カシワレイ",
     "falling": [
@@ -489,13 +524,13 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "微エロ？ビ",
-    "_href": "works/031.html"
+    "_href": ""
   },
   {
     "id": "32",
     "title": "雨上がりの熱アメアネツ",
     "reading": "あめあがりのねつ",
-    "couple": "桐真",
+    "couple": "桐真キリマ",
     "description": "雨に沈んだ町で二人が晴れ間を探す話アメシズマチフタリハマサガハナシ",
     "tags": "早書きチャレンジハヤカ",
     "falling": [
@@ -506,13 +541,13 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/032.html"
+    "_href": ""
   },
   {
     "id": "33",
     "title": "棺ヒツギ",
     "reading": "ひつぎ",
-    "couple": "柏真",
+    "couple": "柏真カシワマ",
     "description": "最期まで残しておきたかった話サイゴノコハナシ",
     "tags": "早書きチャレンジハヤカ",
     "falling": [
@@ -523,13 +558,13 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/033.html"
+    "_href": ""
   },
   {
     "id": "34",
     "title": "最高のおわりサイコウ",
     "reading": "さいこうのおわり",
-    "couple": "その他真島以外",
+    "couple": "その他真島以外タマジマイガイ",
     "description": "西谷誉の一生の話ニシタニホマレイッショウハナシ",
     "tags": "イベント用,西谷誉ヨウニシタニホマレ",
     "falling": [
@@ -540,28 +575,30 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/034.html"
+    "_href": ""
   },
   {
     "id": "35",
     "title": "過去はきっと、カコ",
     "reading": "りめんばー２",
-    "couple": "その他真島関連",
+    "couple": "その他真島関連タマジマカンレン",
     "description": "失わない様にもう一度しまいなおす話ウシナヨウイチドハナシ",
     "tags": "真マコ,連作,イベント用マレンサクヨウ",
     "falling": [
-      "『Re,member』シリーズ後編コウヘン"
+      "",
+      "",
+      ""
     ],
     "adult": false,
     "grave": false,
-    "caution": "",
-    "_href": "works/035.html"
+    "caution": "『Re,member』シリーズ後編コウヘン",
+    "_href": ""
   },
   {
     "id": "36",
     "title": "俺の子オレコ",
     "reading": "おれのこ",
-    "couple": "桐真",
+    "couple": "桐真キリマ",
     "description": "家族になろうよカゾク",
     "tags": "産卵サンラン",
     "falling": [
@@ -572,13 +609,13 @@ window.SITE_WORKS = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/036.html"
+    "_href": ""
   },
   {
     "id": "37",
     "title": "離れないで織姫ハナオリヒメ",
     "reading": "はなれないでおりひめ",
-    "couple": "冴真",
+    "couple": "冴真サエマ",
     "description": "互いのことしか見えていない話タガミハナシ",
     "tags": "七夕タナバタ",
     "falling": [
@@ -589,13 +626,13 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/037.html"
+    "_href": ""
   },
   {
     "id": "38",
     "title": "離さないよ彦星ハナヒコボシ",
     "reading": "はなさないよひこぼし",
-    "couple": "佐真",
+    "couple": "佐真サマ",
     "description": "もうこれが私の佐真の集大成でいいワタシサマシュウタイセイ",
     "tags": "七夕,お気に入りタナバタキイ",
     "falling": [
@@ -606,61 +643,64 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/038.html"
+    "_href": ""
   },
   {
     "id": "39",
     "title": "キャッチボール",
     "reading": "きゃっちぼーる",
-    "couple": "柏真",
+    "couple": "柏真カシワマ",
     "description": "一人の男をおくりあう話ヒトリオトコハナシ",
     "tags": "風間誕カザマタン",
     "falling": [
       "ええ日や、晴れとってヒハ",
-      "そんなに俺が恋しいん？オレコイ"
+      "そんなに俺が恋しいん？オレコイ",
+      ""
     ],
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/039.html"
+    "_href": ""
   },
   {
     "id": "40",
     "title": "セボンスター",
     "reading": "せぼんすたー",
-    "couple": "桐真",
+    "couple": "桐真キリマ",
     "description": "みんなに慕われてるってコトシタ",
     "tags": "早書きチャレンジ,桐組長ifハヤカキリクミチョウ",
     "falling": [
       "俺はきっとこれが好きなのだろうオレス",
-      "え？"
+      "え？",
+      ""
     ],
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/040.html"
+    "_href": ""
   },
   {
     "id": "41",
     "title": "おじいちゃんの失態シッタイ",
     "reading": "おじいちゃんのしったい",
-    "couple": "",
+    "couple": "ノア真マ",
     "description": "おじいちゃん頑張ってガンバ",
     "tags": "失禁シッキン",
     "falling": [
       "おじいちゃんやもんな",
-      "いい子にして待っててねコマ"
+      "いい子にして待っててねコマ",
+      ""
     ],
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/041.html"
+    "_href": ""
   },
   {
     "id": "42",
     "title": "バニーハニーラビットパンツ",
     "reading": "ばにーはにーらびっとぱんつ",
-    "couple": "桐真",
+    "couple": "桐真キリマ",
     "description": "はみを添えてソ",
     "tags": "うさぎバース,未完ミカン",
     "falling": [
@@ -671,13 +711,13 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/042.html"
+    "_href": ""
   },
   {
     "id": "43",
     "title": "さよならなんて、言わせないイ",
     "reading": "さよならなんて、いわせない",
-    "couple": "桐真",
+    "couple": "桐真キリマ",
     "description": "幸せなのはいいですが、周りに迷惑はかけない方がいいと思います。シアワマワメイワクホウオモ",
     "tags": "浄真ジョウマコト",
     "falling": [
@@ -688,13 +728,13 @@ window.SITE_WORKS = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/043.html"
+    "_href": ""
   },
   {
     "id": "44",
     "title": "君と運命的なロマンスキミウンメイテキ",
     "reading": "きみとうんめいてきなろまんす",
-    "couple": "桐真",
+    "couple": "桐真キリマ",
     "description": "感動できますか？カンドウ",
     "tags": "イベント用,未完,若桐老真ヨウミカンワカキリロウマ",
     "falling": [
@@ -705,29 +745,30 @@ window.SITE_WORKS = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/044.html"
+    "_href": ""
   },
   {
     "id": "45",
     "title": "想定外なのはどっちソウテイガイ",
     "reading": "そうていがいなのはどっち",
-    "couple": "佐真",
+    "couple": "佐真サマ",
     "description": "耳はいいミミ",
     "tags": "イベント用,うさぎバース,リクエスト？ヨウ",
     "falling": [
       "なにって、ウサ耳だけどミミ",
-      "触ってええかサワ"
+      "触ってええかサワ",
+      ""
     ],
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/045.html"
+    "_href": ""
   },
   {
     "id": "46",
     "title": "昨日はおたのしみでしtねキノウ",
     "reading": "きのうはおたのしみでしたね",
-    "couple": "桐真",
+    "couple": "桐真キリマ",
     "description": "お腹を押したかったナカオ",
     "tags": "早書きチャレンジハヤカ",
     "falling": [
@@ -738,13 +779,13 @@ window.SITE_WORKS = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/046.html"
+    "_href": ""
   },
   {
     "id": "47",
     "title": "俺好みオレゴノ",
     "reading": "おれごのみ",
-    "couple": "冴真",
+    "couple": "冴真サエマ",
     "description": "巣作りっていい言葉スヅクコトバ",
     "tags": "毎日冴真定例,オメガバースマイニチサエマテイレイ",
     "falling": [
@@ -755,30 +796,31 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/047.html"
+    "_href": ""
   },
   {
     "id": "48",
     "title": "おもいだけ",
     "reading": "おもいだけ",
-    "couple": "冴真",
+    "couple": "冴真サエマ",
     "description": "重い思い想いおもいオモオモオモ",
     "tags": "毎日冴真定例マイニチサエマテイレイ",
     "falling": [
       "話にならん。酔っ払い。ハナシヨパラ",
-      "笑うなアホワラ"
+      "笑うなアホワラ",
+      ""
     ],
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/048.html"
+    "_href": ""
   },
   {
     "id": "49",
     "title": "返しあわずに送りあうカエオク",
     "reading": "かえしあわずにおくりあう",
-    "couple": "冴真",
-    "description": "真が勝手にすれ違っていくタイプの冴真をくだしぁマカッテチガ",
+    "couple": "冴真サエマ",
+    "description": "真が勝手にすれ違っていくタイプの冴真をくだしぁマカッテチガサエマ",
     "tags": "毎日冴真定例,お気に入りマイニチサエマテイレイキイ",
     "falling": [
       "待ってろいうたのお前やろ！ママエ",
@@ -788,13 +830,13 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/049.html"
+    "_href": ""
   },
   {
     "id": "50",
     "title": "感染症カンセンショウ",
     "reading": "かんせんしょう",
-    "couple": "冴真",
+    "couple": "冴真サエマ",
     "description": "お腹を押したかったn回目ナカオカイメ",
     "tags": "毎日冴真定例マイニチサエマテイレイ",
     "falling": [
@@ -805,14 +847,14 @@ window.SITE_WORKS = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/050.html"
+    "_href": ""
   },
   {
     "id": "51",
     "title": "傘の使い方カサツカカタ",
     "reading": "かさのつかいかた",
-    "couple": "冴真",
-    "description": "小学生みたいな冴真がみたいんだよおおおおお！ショウガクセイ",
+    "couple": "冴真サエマ",
+    "description": "小学生みたいな冴真がみたいんだよおおおおお！ショウガクセイサエマ",
     "tags": "毎日冴真定例マイニチサエマテイレイ",
     "falling": [
       "実験中やねんジッケンチュウ",
@@ -822,13 +864,13 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/051.html"
+    "_href": ""
   },
   {
     "id": "52",
     "title": "前夜ゼンヤ",
     "reading": "ぜんや",
-    "couple": "冴真",
+    "couple": "冴真サエマ",
     "description": "自分のことは自分だってわからないジブンジブン",
     "tags": "毎日冴真定例マイニチサエマテイレイ",
     "falling": [
@@ -839,6 +881,6 @@ window.SITE_WORKS = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/052.html"
+    "_href": ""
   }
 ];
