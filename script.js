@@ -50,6 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (a.classList.contains("word-selected")) return;
 
         a.classList.add("word-selected");
+        if (sky) {
+          sky.classList.remove("ripple-active");
+          void sky.offsetWidth;
+          sky.classList.add("ripple-active");
+          window.setTimeout(() => sky.classList.remove("ripple-active"), 1350);
+        }
         if (window.kakitsumataChime) window.kakitsumataChime();
 
         // 波紋と音の余韻を先に見せる。その後、1回だけ滑らかにぼかして遷移。
