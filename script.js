@@ -21,9 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
   }[ch]));
   const isTrue = v => v === true || ["はい","Yes","TRUE","true","1"].includes(String(v));
-    requestAnimationFrame(() => veil.classList.add("active"));
-    window.setTimeout(() => { window.location.href = href; }, 520);
-  }
   const canonicalHref = w => {
     const id = String(w.id).padStart(3, "0");
     return isTrue(w.adult) ? `works/adult/${id}.html` : `works/${id}.html`;
@@ -68,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
       a.appendChild(span);
       sky.appendChild(a);
 
-      setTimeout(() => a.remove(), 10000);
+      setTimeout(() => a.remove(), 12500);
     }
 
     function startFalling() {
