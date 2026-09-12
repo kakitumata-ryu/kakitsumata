@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>川へと沈んだ先で | カキツまた</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+.branch-page{min-height:calc(100vh - 80px);display:grid;place-items:center;padding:60px 20px 90px;text-align:center}
+.branch-inner{width:min(680px,100%)}
+.branch-kicker{color:var(--muted);font-size:.72rem;letter-spacing:.22em;margin-bottom:18px}
+.branch-title{font-size:clamp(1.9rem,5vw,3.4rem);font-weight:400;letter-spacing:.09em;line-height:1.5;margin:0}
+.branch-copy{margin:26px auto 42px;color:var(--muted);line-height:2;font-size:.88rem}
+.branch-choices{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.branch-choice{display:flex;min-height:120px;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--paper);color:var(--ink);text-decoration:none;letter-spacing:.14em;font-size:.9rem;transition:transform .6s cubic-bezier(.16,.72,.2,1),box-shadow .45s ease,border-color .35s ease,opacity .4s ease}
+.branch-choice:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 14px 36px rgba(0,0,0,.08)}
+.branch-back{display:inline-block;margin-top:34px;color:var(--muted);text-decoration:none;font-size:.72rem;letter-spacing:.08em}
+.branch-back:hover{color:var(--ink)}
+.reader-nav{max-width:760px;margin:0 auto;padding:0 20px 65px;display:block;text-align:center;font-size:.78rem}
+.reader-nav a{display:inline-block;border:1px solid var(--line);padding:11px 18px;text-decoration:none;color:var(--muted);background:var(--paper)}
+.reader-nav a:hover{color:var(--ink);border-color:var(--accent)}
+body.reader-cream{--bg:#f3ecdd;--paper:#fbf7ee;--ink:#29251f;--muted:#766d60;--line:#d8cdbc;--accent:#9b6c32;--neon:#5b8f88;--neon2:#a15d64}
+body.reader-cream .header{background:rgba(251,247,238,.92)}
+</style>
+</head>
+<body>
+<header class="header"><a class="logo" href="../index.html">カキツまた / 如く二次創作</a></header>
+<main class="branch-page">
+<div class="branch-inner">
+<div class="branch-kicker">川へと沈んだ先で</div>
+<h1 class="branch-title">どちらの終わりを<br>見に行きますか。</h1>
+<p class="branch-copy">ここから先には、ふたつの結末があります。<br>好きな方へ進んでください。</p>
+<div class="branch-choices">
+<a class="branch-choice" href="038-happy.html" data-branch>ハッピーエンド</a>
+<a class="branch-choice" href="038-true.html" data-branch>トゥルーエンド</a>
+</div>
+<a class="branch-back" href="038.html">本編へ戻る</a>
+</div>
+</main>
+<nav class="reader-nav"><a href="../index.html#novel">作品一覧へ戻る</a></nav>
+<script src="../transition.js"></script>
+<script>
+if((localStorage.getItem("kakitsumata-reader-theme")||"dark")==="cream")document.body.classList.add("reader-cream");
+document.addEventListener("click",(e)=>{
+ const a=e.target.closest("a[data-branch]");
+ if(!a)return;
+ e.preventDefault();
+ if(window.kakitsumataTransition)window.kakitsumataTransition.leaveTo(a.href,1050);
+ else window.setTimeout(()=>{window.location.href=a.href;},1050);
+});
+</script>
+</body>
+</html>

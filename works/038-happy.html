@@ -3,18 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>離さないよ彦星 | カキツまた</title>
+<title>ハッピーエンド | カキツまた</title>
 <link rel="stylesheet" href="../style.css">
 <style>
 .work-reader{max-width:760px;margin:0 auto;padding:70px 20px 120px}
 .reader-head{border-bottom:1px solid var(--line);padding-bottom:28px;margin-bottom:36px}
-.reader-couple{color:var(--accent);font-size:.75rem;letter-spacing:.12em;margin-bottom:8px}
-.reader-title{font-size:clamp(1.8rem,5vw,3rem);font-weight:500;line-height:1.4;margin:0 0 18px}
-.reader-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
-.reader-tag{font-size:.72rem;color:var(--muted)}
-.reader-tag::before{content:"#";color:var(--accent);opacity:.75}
+.reader-kicker{color:var(--muted);font-size:.72rem;letter-spacing:.18em;margin-bottom:12px}
+.reader-title{font-size:clamp(1.8rem,5vw,3rem);font-weight:500;line-height:1.4;margin:0 0 16px}
 .reader-summary{border-left:2px solid var(--accent);padding:12px 17px;color:var(--muted);line-height:1.9}
-.reader-caution{margin-top:12px;font-size:.78rem;color:var(--muted)}
 .reader-tools{display:flex;justify-content:flex-end;gap:8px;margin:0 0 35px}
 .reader-tools button{font:inherit;font-size:.72rem;color:var(--muted);background:transparent;border:1px solid var(--line);padding:7px 13px;cursor:pointer}
 .reader-tools button.active,.reader-tools button:hover{color:var(--ink);border-color:var(--accent)}
@@ -25,16 +21,6 @@
 .novel-pagebreak{margin:4.5rem 0;text-align:center;color:var(--muted);letter-spacing:.45em}
 .novel-pagebreak::before,.novel-pagebreak::after{content:"";display:inline-block;width:72px;height:1px;background:var(--line);vertical-align:middle;margin:0 18px}
 .reader-error{padding:20px;border:1px solid var(--line);color:var(--muted)}
-
-.branch-link-wrap{margin:5.5rem auto 1rem;text-align:center}
-.branch-link{display:inline-block;padding:1rem 1.8rem;border:1px solid var(--line);color:var(--ink);text-decoration:none;letter-spacing:.08em;transition:opacity .35s ease,transform .5s cubic-bezier(.16,.72,.2,1),border-color .35s ease,box-shadow .35s ease}
-.branch-link:hover{border-color:var(--accent);box-shadow:0 8px 28px rgba(0,0,0,.08);transform:translateY(-2px)}
-.branch-note{margin:.8rem 0 0;color:var(--muted);font-size:.72rem;letter-spacing:.08em}
-
-.reader-nav{max-width:760px;margin:0 auto;padding:0 20px 65px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;font-size:.78rem}
-.reader-nav a{border:1px solid var(--line);padding:11px 13px;text-decoration:none;color:var(--muted);text-align:center;background:var(--paper)}
-.reader-nav a:hover{color:var(--ink);border-color:var(--accent)}
-.reader-nav .disabled{opacity:.25;pointer-events:none}
 .chat-row{display:flex;width:100%;margin:1.1rem 0}
 .chat-row.left{justify-content:flex-start}
 .chat-row.right{justify-content:flex-end}
@@ -48,69 +34,47 @@
 .chat-image{margin:.25rem 0 .1rem}
 .reader-image img,.chat-image img{display:block;max-width:100%;width:auto;max-height:70vh;margin:0 auto;border-radius:8px;cursor:zoom-in}
 .reader-image.is-expanded img,.chat-image.is-expanded img{max-height:none;cursor:zoom-out}
+.end-nav{max-width:760px;margin:0 auto;padding:0 20px 80px;text-align:center}
+.end-nav .other-end{display:inline-block;min-width:260px;border:1px solid var(--line);padding:15px 20px;color:var(--ink);text-decoration:none;letter-spacing:.08em;background:var(--paper);transition:transform .6s cubic-bezier(.16,.72,.2,1),box-shadow .45s ease,border-color .35s ease}
+.end-nav .other-end:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 14px 36px rgba(0,0,0,.08)}
+.end-nav .back{display:block;margin-top:18px;border:0;background:transparent;color:var(--muted);font-size:.72rem;min-width:auto;padding:8px;text-decoration:none}
+.end-nav .back:hover{color:var(--ink)}
 body.reader-cream{--bg:#f3ecdd;--paper:#fbf7ee;--ink:#29251f;--muted:#766d60;--line:#d8cdbc;--accent:#9b6c32;--neon:#5b8f88;--neon2:#a15d64}
 body.reader-cream .header{background:rgba(251,247,238,.92)}
-@media(max-width:680px){
-  .work-reader{padding-top:42px}
-  .novel-text{font-size:.98rem;line-height:2.15}
-  .novel-pagebreak::before,.novel-pagebreak::after{width:35px;margin:0 10px}
-  .chat-bubble{max-width:82%;padding:10px 13px}
-  .reader-nav{grid-template-columns:1fr 1fr;gap:8px}
-  .reader-nav a:nth-child(2){grid-column:1 / -1;order:-1}
-}
-
-/* ルビ */
-ruby{
-  ruby-position:over;
-  ruby-align:center;
-}
-rt{
-  font-size:.48em;
-  line-height:1;
-  letter-spacing:.02em;
-  color:inherit;
-  opacity:.78;
-}
+ruby{ruby-position:over;ruby-align:center}
+rt{font-size:.48em;line-height:1;letter-spacing:.02em;color:inherit;opacity:.78}
+@media(max-width:680px){.work-reader{padding-top:42px}.novel-text{font-size:.98rem;line-height:2.15}.novel-pagebreak::before,.novel-pagebreak::after{width:35px;margin:0 10px}.chat-bubble{max-width:82%;padding:10px 13px}}
 </style>
 </head>
 <body>
 <header class="header"><a class="logo" href="../index.html">カキツまた / 如く二次創作</a></header>
 <main class="work-reader">
 <header class="reader-head">
-<div class="reader-couple">佐真</div>
-<h1 class="reader-title">離さないよ彦星</h1>
-<div class="reader-tags"><span class="reader-tag">七夕</span><span class="reader-tag">お気に入り</span></div>
-<div class="reader-summary">もうこれが私の佐真の集大成でいい</div>
-
+<div class="reader-kicker">川へと沈んだ先で</div>
+<h1 class="reader-title">ハッピーエンド</h1>
+<div class="reader-summary">この先に、もうひとつの結末があります。</div>
 </header>
 <div class="reader-tools"><button type="button" id="darkMode" class="active">🌙 暗い</button><button type="button" id="creamMode">☕ クリーム</button></div>
 <article class="novel-text" id="body"><p class="reader-error">本文を読み込んでいます……</p></article>
 </main>
-<nav class="reader-nav"><a href="../index.html#novel">作品一覧へ戻る</a></nav>
+<nav class="end-nav">
+<a class="other-end" href="038-true.html" data-end>違う終わりを見に行く</a>
+<a class="back" href="../index.html#novel">作品一覧へ戻る</a>
+</nav>
 <script src="../transition.js"></script>
 <script>
 const dark=document.querySelector("#darkMode");
 const cream=document.querySelector("#creamMode");
-function setTheme(theme){
-  document.body.classList.toggle("reader-cream",theme==="cream");
-  dark.classList.toggle("active",theme!=="cream");
-  cream.classList.toggle("active",theme==="cream");
-  localStorage.setItem("kakitsumata-reader-theme",theme);
-}
 const IMAGE_BASE="../images/";
+function setTheme(theme){
+ document.body.classList.toggle("reader-cream",theme==="cream");
+ dark.classList.toggle("active",theme!=="cream");
+ cream.classList.toggle("active",theme==="cream");
+ localStorage.setItem("kakitsumata-reader-theme",theme);
+}
 setTheme(localStorage.getItem("kakitsumata-reader-theme")||"dark");
 dark.addEventListener("click",()=>setTheme("dark"));
 cream.addEventListener("click",()=>setTheme("cream"));
-
-document.addEventListener("click",(e)=>{
-  const a=e.target.closest("a[data-branch]");
-  if(!a) return;
-  e.preventDefault();
-  if(window.kakitsumataTransition) window.kakitsumataTransition.leaveTo(a.href,1050);
-  else window.setTimeout(()=>{window.location.href=a.href;},1050);
-});
-
-
 function makeReaction(value){
   const span=document.createElement("span");
   span.className="chat-reaction";
@@ -230,11 +194,17 @@ function renderBody(text){
     }
   });
 }
-
-fetch("../texts/038.txt",{cache:"no-cache"})
-  .then(r=>{if(!r.ok)throw new Error("本文ファイルが見つかりません");return r.text();})
-  .then(renderBody)
-  .catch(()=>{document.querySelector("#body").innerHTML='<div class="reader-error">この作品の本文ファイルはまだ登録されていません。</div>';});
+fetch("../texts/038-happy.txt",{cache:"no-cache"})
+ .then(r=>{if(!r.ok)throw new Error();return r.text();})
+ .then(renderBody)
+ .catch(()=>{document.querySelector("#body").innerHTML='<div class="reader-error">この結末の本文ファイルはまだ登録されていません。</div>';});
+document.addEventListener("click",(e)=>{
+ const a=e.target.closest("a[data-end]");
+ if(!a)return;
+ e.preventDefault();
+ if(window.kakitsumataTransition)window.kakitsumataTransition.leaveTo(a.href,1050);
+ else window.setTimeout(()=>window.location.href=a.href,1050);
+});
 </script>
 </body>
 </html>
