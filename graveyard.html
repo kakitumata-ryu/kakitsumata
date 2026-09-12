@@ -25,7 +25,7 @@ const rows = (window.records || [])
   .sort((a,b)=>String(a.reading||a.title).localeCompare(String(b.reading||b.title),"ja"));
 const list = document.querySelector("#graveyard-list");
 list.innerHTML = rows.map(w => {
-  const href = w.adult ? `adult-warning.html?id=${encodeURIComponent(w.id)}` : (w._href || "#");
+  const href = w.adult ? `adult-warning.html?id=${encodeURIComponent(w.id)}` : `works/${String(w.id).padStart(3,"0")}.html`;
   return `<a href="${href}" class="work">
     <span class="meta">${esc(w.couple)}</span>
     <strong>${esc(w.title)}</strong>

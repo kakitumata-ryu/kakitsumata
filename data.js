@@ -14,7 +14,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/001.html"
+    "_href": ""
   },
   {
     "id": "2",
@@ -31,7 +31,7 @@ window.records = [
     "adult": false,
     "grave": true,
     "caution": "",
-    "_href": "works/002.html"
+    "_href": ""
   },
   {
     "id": "3",
@@ -48,7 +48,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "過去捏造あり",
-    "_href": "works/003.html"
+    "_href": ""
   },
   {
     "id": "4",
@@ -65,7 +65,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/004.html"
+    "_href": ""
   },
   {
     "id": "5",
@@ -82,7 +82,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/005.html"
+    "_href": ""
   },
   {
     "id": "6",
@@ -99,7 +99,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "前編",
-    "_href": "works/006.html"
+    "_href": ""
   },
   {
     "id": "7",
@@ -116,7 +116,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "後編",
-    "_href": "works/007.html"
+    "_href": ""
   },
   {
     "id": "8",
@@ -133,7 +133,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/008.html"
+    "_href": ""
   },
   {
     "id": "9",
@@ -150,7 +150,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/009.html"
+    "_href": ""
   },
   {
     "id": "10",
@@ -167,7 +167,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/010.html"
+    "_href": ""
   },
   {
     "id": "11",
@@ -184,7 +184,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/011.html"
+    "_href": ""
   },
   {
     "id": "12",
@@ -201,7 +201,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/012.html"
+    "_href": ""
   },
   {
     "id": "13",
@@ -218,7 +218,7 @@ window.records = [
     "adult": false,
     "grave": true,
     "caution": "",
-    "_href": "works/013.html"
+    "_href": ""
   },
   {
     "id": "14",
@@ -235,7 +235,7 @@ window.records = [
     "adult": false,
     "grave": true,
     "caution": "",
-    "_href": "works/014.html"
+    "_href": ""
   },
   {
     "id": "15",
@@ -252,7 +252,7 @@ window.records = [
     "adult": false,
     "grave": true,
     "caution": "",
-    "_href": "works/015.html"
+    "_href": ""
   },
   {
     "id": "16",
@@ -269,7 +269,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "微エロあり",
-    "_href": "works/016.html"
+    "_href": ""
   },
   {
     "id": "17",
@@ -286,7 +286,7 @@ window.records = [
     "adult": false,
     "grave": true,
     "caution": "",
-    "_href": "works/017.html"
+    "_href": ""
   },
   {
     "id": "18",
@@ -303,7 +303,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "微エロあり",
-    "_href": "works/018.html"
+    "_href": ""
   },
   {
     "id": "19",
@@ -320,7 +320,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/019.html"
+    "_href": ""
   },
   {
     "id": "20",
@@ -337,7 +337,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "おまけあり",
-    "_href": "works/020.html"
+    "_href": ""
   },
   {
     "id": "21",
@@ -354,7 +354,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "『船出の日』のおまけ",
-    "_href": "works/021.html"
+    "_href": ""
   },
   {
     "id": "22",
@@ -371,7 +371,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/adult/022.html"
+    "_href": ""
   },
   {
     "id": "23",
@@ -388,7 +388,7 @@ window.records = [
     "adult": false,
     "grave": true,
     "caution": "",
-    "_href": "works/023.html"
+    "_href": ""
   },
   {
     "id": "24",
@@ -405,7 +405,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/024.html"
+    "_href": ""
   },
   {
     "id": "25",
@@ -422,7 +422,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/reimen.html"
+    "_href": ""
   },
   {
     "id": "26",
@@ -439,7 +439,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/adult/026.html"
+    "_href": ""
   },
   {
     "id": "27",
@@ -456,7 +456,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "『Re,member』シリーズ前編",
-    "_href": "works/027.html"
+    "_href": ""
   },
   {
     "id": "28",
@@ -473,7 +473,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "内容は、ほんと酷い地雷原",
-    "_href": "works/adult/028.html"
+    "_href": ""
   },
   {
     "id": "29",
@@ -490,7 +490,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/adult/029.html"
+    "_href": ""
   },
   {
     "id": "30",
@@ -507,7 +507,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/030.html"
+    "_href": ""
   },
   {
     "id": "31",
@@ -524,7 +524,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "微エロ？",
-    "_href": "works/031.html"
+    "_href": ""
   },
   {
     "id": "32",
@@ -541,7 +541,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/032.html"
+    "_href": ""
   },
   {
     "id": "33",
@@ -558,7 +558,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/033.html"
+    "_href": ""
   },
   {
     "id": "34",
@@ -575,7 +575,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/034.html"
+    "_href": ""
   },
   {
     "id": "35",
@@ -592,7 +592,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "『Re,member』シリーズ後編",
-    "_href": "works/035.html"
+    "_href": ""
   },
   {
     "id": "36",
@@ -609,7 +609,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/adult/036.html"
+    "_href": ""
   },
   {
     "id": "37",
@@ -626,7 +626,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/037.html"
+    "_href": ""
   },
   {
     "id": "38",
@@ -643,7 +643,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/038.html"
+    "_href": ""
   },
   {
     "id": "39",
@@ -660,7 +660,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/039.html"
+    "_href": ""
   },
   {
     "id": "40",
@@ -677,7 +677,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/040.html"
+    "_href": ""
   },
   {
     "id": "41",
@@ -694,7 +694,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/041.html"
+    "_href": ""
   },
   {
     "id": "42",
@@ -711,7 +711,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/042.html"
+    "_href": ""
   },
   {
     "id": "43",
@@ -728,7 +728,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/adult/043.html"
+    "_href": ""
   },
   {
     "id": "44",
@@ -745,7 +745,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/adult/044.html"
+    "_href": ""
   },
   {
     "id": "45",
@@ -762,7 +762,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/045.html"
+    "_href": ""
   },
   {
     "id": "46",
@@ -779,7 +779,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/adult/046.html"
+    "_href": ""
   },
   {
     "id": "47",
@@ -796,7 +796,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/047.html"
+    "_href": ""
   },
   {
     "id": "48",
@@ -813,7 +813,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/048.html"
+    "_href": ""
   },
   {
     "id": "49",
@@ -830,7 +830,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/049.html"
+    "_href": ""
   },
   {
     "id": "50",
@@ -847,7 +847,7 @@ window.records = [
     "adult": true,
     "grave": false,
     "caution": "",
-    "_href": "works/adult/050.html"
+    "_href": ""
   },
   {
     "id": "51",
@@ -864,7 +864,7 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/kasa.html"
+    "_href": ""
   },
   {
     "id": "52",
@@ -881,6 +881,6 @@ window.records = [
     "adult": false,
     "grave": false,
     "caution": "",
-    "_href": "works/052.html"
+    "_href": ""
   }
 ];

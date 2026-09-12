@@ -21,6 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
   }[ch]));
   const isTrue = v => v === true || ["はい","Yes","TRUE","true","1"].includes(String(v));
+  const canonicalHref = w => {
+    const id = String(w.id).padStart(3, "0");
+    return isTrue(w.adult) ? `works/adult/${id}.html` : `works/${id}.html`;
+  };
 
   // ---------- Falling words ----------
   if (sky) {
@@ -37,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       a.className = "word";
       a.href = isTrue(w.adult)
         ? `adult-warning.html?id=${encodeURIComponent(w.id)}`
-        : (w._href || "#");
+        : canonicalHref(w);
 
       a.style.left = `${4 + Math.random() * 82}%`;
       a.style.setProperty("--fall-time", `${9300 + Math.random() * 2600}ms`);
@@ -92,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         : "";
 
       return `
-      <a href="${esc(w._href || "#")}" class="work">
+      <a href="${esc(canonicalHref(w))}" class="work">
         <span class="meta">${esc(w.couple)}</span>
         <strong>${esc(w.title)}</strong>
         <em>${esc(w.description || "")}</em>
