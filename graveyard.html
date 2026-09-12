@@ -24,9 +24,28 @@ const rows = (window.records || [])
   .filter(w => w.grave)
   .sort((a,b)=>String(a.reading||a.title).localeCompare(String(b.reading||b.title),"ja"));
 const list = document.querySelector("#graveyard-list");
+
+async function openGrave(id){
+  const n = String(id).padStart(3,"0");
+  const candidates = [`works/${n}.html`, `${n}.html`];
+  for (const url of candidates) {
+    try {
+      const r = await fetch(url, {cache:"no-cache"});
+      if (!r.ok) continue;
+      const html = await r.text();
+      // 旧プレースホルダーしかない場合は、別の配置にある本文ページを探す。
+      if (/本文ファイルはまだ登録されていません/.test(html)) continue;
+      location.href = url;
+      return;
+    } catch(e) {}
+  }
+  // 最後は標準位置へ遷移して、GitHub Pages側の既存ページをそのまま使う。
+  location.href = `works/${n}.html`;
+}
+
 list.innerHTML = rows.map(w => {
-  const href = w.adult ? `adult-warning.html?id=${encodeURIComponent(w.id)}` : `works/${String(w.id).padStart(3,"0")}.html`;
-  return `<a href="${href}" class="work">
+  const onclick = `openGrave('${String(w.id).replace(/'/g,"\\'")}'); return false;`;
+  return `<a href="works/${String(w.id).padStart(3,"0")}.html" class="work" onclick="${onclick}">
     <span class="meta">${esc(w.couple)}</span>
     <strong>${esc(w.title)}</strong>
     <em>${esc(w.description || "")}</em>

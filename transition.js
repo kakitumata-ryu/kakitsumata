@@ -16,14 +16,14 @@
     });
   }
 
-  function leaveTo(href) {
+  function leaveTo(href, delay = 520) {
     sessionStorage.setItem(KEY, "1");
     document.documentElement.classList.add("page-leaving");
 
     // 前ページのぼかしが深くなったところで移動。
     window.setTimeout(() => {
       window.location.href = href;
-    }, 520);
+    }, delay);
   }
 
   window.kakitsumataTransition = { enter, leaveTo };
