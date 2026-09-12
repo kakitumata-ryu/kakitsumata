@@ -121,5 +121,6 @@ fetch("../texts/001.txt",{cache:"no-cache"})
   .then(renderBody)
   .catch(e=>{document.querySelector("#body").innerHTML='<div class="reader-error">本文データを読み込めませんでした。<br>texts/001.txt がサイト内にあるか確認してください。</div>';});
 </script>
+<script src="../transition.js"></script>
 </body>
 </html>
