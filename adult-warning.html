@@ -21,11 +21,12 @@
   </div>
 </section>
 </main>
-<script src="data.js"></script>
 <script>
 const id = new URLSearchParams(location.search).get("id");
-const work = (window.records || []).find(w => String(w.id) === String(id) && w.adult && !w.grave);
-const target = work ? "works/adult/" + String(work.id).padStart(3,"0") + ".html" : "adult.html";
+const adultIds = ["022", "025", "026", "028", "029", "036", "041", "043", "044", "046", "050"];
+const target = adultIds.includes(String(id).padStart(3,"0"))
+  ? "works/adult/" + String(id).padStart(3,"0") + ".html"
+  : "adult.html";
 document.querySelector("#enter").addEventListener("click", () => location.href = target);
 </script>
 </body>

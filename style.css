@@ -433,3 +433,5 @@ main {
 .works .work .meta{font-size:.72rem}
 .work strong{display:block}
 .sort-note{display:block;margin-top:.35rem}
+
+.adult-work .meta{color:var(--accent)}
