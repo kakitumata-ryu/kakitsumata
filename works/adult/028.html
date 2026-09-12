@@ -211,11 +211,24 @@ fetch("../../texts/028.txt",{cache:"no-cache"})
   <button class="adult-fun-button" type="button" data-adult-fun="champagne" aria-label="尿ボタン" title="尿">🥂</button>
 </div>
 <div id="adult-splash" class="adult-splash" aria-hidden="true"></div>
+<div id="adult-breakthrough" class="adult-breakthrough" aria-hidden="true">
+  <div class="adult-breakthrough-flash"></div>
+  <p class="adult-breakthrough-title">突破！！</p>
+  <p class="adult-breakthrough-side adult-breakthrough-left">うおおおおお！</p>
+  <p class="adult-breakthrough-side adult-breakthrough-right">あかんっ♡</p>
+  <div class="adult-breakthrough-final-flash"></div>
+</div>
 <script>
 (() => {
   const splash = document.getElementById('adult-splash');
+  const breakthrough = document.getElementById('adult-breakthrough');
   const buttons = document.querySelectorAll('[data-adult-fun]');
-  if (!splash || !buttons.length) return;
+  if (!splash || !breakthrough || !buttons.length) return;
+
+  let tapCount = 0;
+  let locked = false;
+  let resetTimer = null;
+  let breakthroughTimer = null;
 
   function makeDroplets(){
     splash.querySelectorAll('.adult-droplet').forEach(el => el.remove());
@@ -224,7 +237,8 @@ fetch("../../texts/028.txt",{cache:"no-cache"})
       const d=document.createElement('i');
       d.className='adult-droplet';
       const angle=(Math.random()*Math.PI*2);
-      const distance=(window.innerWidth < 681 ? 90 : 130) + Math.random()*(window.innerWidth < 681 ? 120 : 260);
+      const mobile=window.innerWidth < 681;
+      const distance=(mobile ? 90 : 130) + Math.random()*(mobile ? 120 : 260);
       const dx=Math.cos(angle)*distance;
       const dy=Math.sin(angle)*distance - (70+Math.random()*150);
       d.style.setProperty('--dx', dx.toFixed(1)+'px');
@@ -236,21 +250,60 @@ fetch("../../texts/028.txt",{cache:"no-cache"})
     }
   }
 
-  buttons.forEach(btn => {
-    const fire = (ev) => {
-      if(ev) ev.preventDefault();
-      makeDroplets();
+  function playSplash(type){
+    makeDroplets();
+    splash.classList.remove('active','yellow');
+    void splash.offsetWidth;
+    if(type === 'champagne') splash.classList.add('yellow');
+    splash.classList.add('active');
+    window.clearTimeout(splash._kktTimer);
+    splash._kktTimer=window.setTimeout(() => {
       splash.classList.remove('active','yellow');
-      void splash.offsetWidth;
-      if(btn.dataset.adultFun === 'champagne') splash.classList.add('yellow');
-      splash.classList.add('active');
-      window.clearTimeout(splash._kktTimer);
-      splash._kktTimer=window.setTimeout(() => {
-        splash.classList.remove('active','yellow');
-      },4600);
-    };
-    btn.addEventListener('click',fire,{passive:false});
-    btn.addEventListener('touchend',fire,{passive:false});
+    },4600);
+  }
+
+  function breakthroughNow(){
+    if(locked) return;
+    locked=true;
+    window.clearTimeout(resetTimer);
+    window.clearTimeout(breakthroughTimer);
+    splash.classList.remove('active','yellow');
+    breakthrough.classList.remove('active');
+    void breakthrough.offsetWidth;
+    breakthrough.classList.add('active');
+    breakthrough.setAttribute('aria-hidden','false');
+    breakthroughTimer=window.setTimeout(() => {
+      breakthrough.classList.remove('active');
+      breakthrough.setAttribute('aria-hidden','true');
+      tapCount=0;
+      locked=false;
+    },8000);
+  }
+
+  function press(btn){
+    if(locked) return;
+    tapCount++;
+    window.clearTimeout(resetTimer);
+    if(tapCount >= 20){
+      breakthroughNow();
+      return;
+    }
+    resetTimer=window.setTimeout(() => { tapCount=0; },5000);
+    playSplash(btn.dataset.adultFun);
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('pointerup', (ev) => {
+      if(ev.pointerType === 'mouse' && ev.button !== 0) return;
+      ev.preventDefault();
+      press(btn);
+    });
+    btn.addEventListener('keydown', (ev) => {
+      if(ev.key === 'Enter' || ev.key === ' '){
+        ev.preventDefault();
+        press(btn);
+      }
+    });
   });
 })();
 </script>
