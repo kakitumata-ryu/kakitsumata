@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="style.css">
     <meta name="robots" content="noindex, nofollow, noarchive">
 </head>
-<body>
+<body data-text-effects="v74">
 <header class="header">
   <a class="logo" href="index.html">カキツ、また / 如く二次創作</a>
   <nav><a href="index.html#novel">作品</a><a href="index.html#archive">墓場</a><a href="index.html#about">ここについて</a><a href="index.html#link">リンク</a></nav>
@@ -123,5 +123,26 @@ filters.forEach(btn => btn.addEventListener("click", () => render(btn.dataset.fi
 render("すべて");
 </script>
 <script src="transition.js"></script>
+
+<div class="adult-fun-buttons" aria-label="成人向けページのお遊びボタン">
+  <button class="adult-fun-button" type="button" data-adult-fun="whale" aria-label="潮ボタン" title="潮">🐳</button>
+  <button class="adult-fun-button" type="button" data-adult-fun="champagne" aria-label="尿ボタン" title="尿">🥂</button>
+</div>
+<div id="adult-splash" class="adult-splash" aria-hidden="true"></div>
+<script>
+(() => {
+  const splash = document.getElementById('adult-splash');
+  const buttons = document.querySelectorAll('[data-adult-fun]');
+  if (!splash || !buttons.length) return;
+  buttons.forEach(btn => btn.addEventListener('click', () => {
+    splash.classList.remove('active','yellow');
+    void splash.offsetWidth;
+    if (btn.dataset.adultFun === 'champagne') splash.classList.add('yellow');
+    splash.classList.add('active');
+    window.setTimeout(() => splash.classList.remove('active','yellow'), 2500);
+  }));
+})();
+</script>
+
 </body>
 </html>

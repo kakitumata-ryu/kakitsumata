@@ -68,7 +68,7 @@ rt{
 </style>
     <meta name="robots" content="noindex, nofollow, noarchive">
 </head>
-<body>
+<body data-text-effects="v74">
 <header class="header"><a class="logo" href="../../index.html">カキツ、また / 如く二次創作</a></header>
 <main class="work-reader">
 <header class="reader-head">
@@ -205,5 +205,26 @@ fetch("../../texts/026.txt",{cache:"no-cache"})
   .then(renderBody)
   .catch(()=>{document.querySelector("#body").innerHTML='<div class="reader-error">この作品の本文ファイルはまだ登録されていません。</div>';});
 </script>
+
+<div class="adult-fun-buttons" aria-label="成人向けページのお遊びボタン">
+  <button class="adult-fun-button" type="button" data-adult-fun="whale" aria-label="潮ボタン" title="潮">🐳</button>
+  <button class="adult-fun-button" type="button" data-adult-fun="champagne" aria-label="尿ボタン" title="尿">🥂</button>
+</div>
+<div id="adult-splash" class="adult-splash" aria-hidden="true"></div>
+<script>
+(() => {
+  const splash = document.getElementById('adult-splash');
+  const buttons = document.querySelectorAll('[data-adult-fun]');
+  if (!splash || !buttons.length) return;
+  buttons.forEach(btn => btn.addEventListener('click', () => {
+    splash.classList.remove('active','yellow');
+    void splash.offsetWidth;
+    if (btn.dataset.adultFun === 'champagne') splash.classList.add('yellow');
+    splash.classList.add('active');
+    window.setTimeout(() => splash.classList.remove('active','yellow'), 2500);
+  }));
+})();
+</script>
+
 </body>
 </html>
