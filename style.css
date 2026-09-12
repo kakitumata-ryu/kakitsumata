@@ -577,11 +577,12 @@ html.page-entered body{
   animation:wordPlop 1.25s cubic-bezier(.16,.72,.18,1) forwards !important;
 }
 .word-selected span{
+  position:relative;
   display:inline-block;
   animation:wordGlow 1.25s ease forwards;
 }
-.word-selected::before,
-.word-selected::after{
+.word-selected span::before,
+.word-selected span::after{
   content:"";
   position:absolute;
   left:50%;
@@ -591,13 +592,15 @@ html.page-entered body{
   border:1px solid rgba(238,234,226,.9);
   border-radius:50%;
   transform:translate(-50%,-50%) scale(.22);
+  transform-origin:center;
   opacity:.78;
   pointer-events:none;
+  box-sizing:border-box;
 }
-.word-selected::before{
+.word-selected span::before{
   animation:wordRipple 1.15s cubic-bezier(.12,.73,.19,1) forwards;
 }
-.word-selected::after{
+.word-selected span::after{
   animation:wordRipple 1.05s cubic-bezier(.12,.73,.19,1) .16s forwards;
 }
 @keyframes wordPlop{
