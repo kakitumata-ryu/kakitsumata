@@ -939,3 +939,77 @@ html.page-entered body{
     text-shadow:0 2px 0 #000,0 0 8px #fff,0 0 18px #fff,4px 6px 0 rgba(0,0,0,.95);
   }
 }
+
+
+/* KAKITSUMATA_NOTIFICATIONS_V83 */
+.kkt-notification-host{
+  position:fixed;
+  top:12px;
+  left:50%;
+  width:min(420px,calc(100vw - 24px));
+  transform:translateX(-50%);
+  z-index:12000;
+  pointer-events:none;
+}
+.kkt-notification{
+  display:grid;
+  grid-template-columns:38px minmax(0,1fr) 28px;
+  gap:11px;
+  align-items:center;
+  padding:11px 10px 11px 12px;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:18px;
+  background:rgba(28,28,30,.94);
+  color:#fff;
+  box-shadow:0 16px 40px rgba(0,0,0,.24),0 4px 14px rgba(0,0,0,.18);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  backdrop-filter:blur(18px) saturate(140%);
+  opacity:0;
+  transform:translateY(-26px) scale(.96);
+  animation:kktNotifIn .42s cubic-bezier(.2,.8,.25,1) forwards;
+  pointer-events:auto;
+  overflow:hidden;
+}
+.kkt-notification.is-leaving{animation:kktNotifOut .34s ease forwards}
+.kkt-notification-avatar{
+  width:38px;height:38px;border-radius:50%;
+  display:grid;place-items:center;
+  background:linear-gradient(145deg,#4c4c52,#202024);
+  border:1px solid rgba(255,255,255,.18);
+  font-size:18px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12);
+}
+.kkt-notification-copy{min-width:0}
+.kkt-notification-name{
+  font-size:.68rem;font-weight:700;letter-spacing:.04em;
+  color:rgba(255,255,255,.62);margin-bottom:2px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.kkt-notification-message{
+  font-size:.89rem;line-height:1.45;font-weight:600;
+  white-space:normal;overflow-wrap:anywhere;
+}
+.kkt-notification-close{
+  width:28px;height:28px;border:0;border-radius:50%;
+  background:transparent;color:rgba(255,255,255,.64);
+  font-size:18px;line-height:1;cursor:pointer;
+  display:grid;place-items:center;
+  transition:background .18s ease,color .18s ease;
+}
+.kkt-notification-close:hover,.kkt-notification-close:focus-visible{
+  background:rgba(255,255,255,.10);color:#fff;outline:none;
+}
+@keyframes kktNotifIn{
+  from{opacity:0;transform:translateY(-26px) scale(.96)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes kktNotifOut{
+  from{opacity:1;transform:translateY(0) scale(1)}
+  to{opacity:0;transform:translateY(-18px) scale(.98)}
+}
+@media(max-width:680px){
+  .kkt-notification-host{top:8px;width:calc(100vw - 16px)}
+  .kkt-notification{grid-template-columns:34px minmax(0,1fr) 28px;gap:9px;padding:10px 8px 10px 10px;border-radius:16px}
+  .kkt-notification-avatar{width:34px;height:34px;font-size:16px}
+  .kkt-notification-message{font-size:.84rem}
+}

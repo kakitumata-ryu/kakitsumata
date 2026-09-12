@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css">
     <meta name="robots" content="noindex, nofollow, noarchive">
 </head>
-<body>
+<body data-text-effects="v74">
 <div id="ceremony-overlay" class="ceremony-overlay" hidden aria-live="polite" aria-label="東城会イベント">
   <div class="ceremony-inner">
     <p id="ceremony-line1" class="ceremony-line ceremony-line1"></p>
@@ -79,7 +79,7 @@
 
 <section id="about" class="section">
   <div class="section-title"><span>03</span><h2>ここについて</h2></div>
-  <p>ここはカキツハタがまた性懲りもなく書いたものを適当に放り込んでおく場所です。</p>
+  <p>ここはカキツ、またが書いたものを適当に放り込んでおく場所です。</p>
   <p>作品を読んだり、変な一文を拾ったりしてください。</p>
 </section>
 
@@ -344,7 +344,7 @@ window.kakitsumataChime = function () {
       line1.textContent = pickRandomLine();
     }
 
-    const duration = mode === "succession" ? 6500 : mode === "retirement" ? 6000 : mode === "triple" ? 5000 : 3500;
+    const duration = mode === "succession" ? 6500 : mode === "retirement" ? 6000 : mode === "triple" ? 5000 : 4500;
     window.setTimeout(() => {
       overlay.classList.add("ceremony-fadeout");
       document.body.classList.remove("ceremony-active");
@@ -363,5 +363,6 @@ window.kakitsumataChime = function () {
 <script src="data.js"></script>
 <script src="script.js"></script>
 <script src="transition.js"></script>
+<script src="notifications.js"></script>
 </body>
 </html>
