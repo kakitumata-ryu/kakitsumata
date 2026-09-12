@@ -1,4 +1,4 @@
-const records = [
+window.records = [
   {
     "id": "1",
     "title": "われ、ほがらか也",
