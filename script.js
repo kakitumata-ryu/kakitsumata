@@ -21,6 +21,19 @@ document.addEventListener("DOMContentLoaded", () => {
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
   }[ch]));
   const isTrue = v => v === true || ["はい","Yes","TRUE","true","1"].includes(String(v));
+  function softNavigate(href, wordEl) {
+    if (!href || href === "#") return;
+    if (wordEl) wordEl.classList.add("word-leaving");
+
+    let veil = document.querySelector(".page-transition");
+    if (!veil) {
+      veil = document.createElement("div");
+      veil.className = "page-transition";
+      document.body.appendChild(veil);
+    }
+    requestAnimationFrame(() => veil.classList.add("active"));
+    window.setTimeout(() => { window.location.href = href; }, 520);
+  }
   const canonicalHref = w => {
     const id = String(w.id).padStart(3, "0");
     return isTrue(w.adult) ? `works/adult/${id}.html` : `works/${id}.html`;
@@ -39,9 +52,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const a = document.createElement("a");
       a.className = "word";
-      a.href = isTrue(w.adult)
+      const destination = isTrue(w.adult)
         ? `adult-warning.html?id=${encodeURIComponent(w.id)}`
         : canonicalHref(w);
+      a.href = destination;
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        softNavigate(destination, a);
+      });
 
       a.style.left = `${4 + Math.random() * 82}%`;
       a.style.setProperty("--fall-time", `${9300 + Math.random() * 2600}ms`);

@@ -435,3 +435,43 @@ main {
 .sort-note{display:block;margin-top:.35rem}
 
 .adult-work .meta{color:var(--accent)}
+
+/* 降ってきた言葉を拾ったときの、やわらかな画面遷移 */
+.page-transition{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  pointer-events:none;
+  opacity:0;
+  background:rgba(13,16,19,.08);
+  backdrop-filter:blur(0);
+  -webkit-backdrop-filter:blur(0);
+  transition:opacity .52s ease, backdrop-filter .52s ease, -webkit-backdrop-filter .52s ease;
+}
+.page-transition.active{
+  opacity:1;
+  background:rgba(13,16,19,.28);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+.word.word-leaving{
+  z-index:10000;
+  animation:wordLeave .52s ease forwards !important;
+}
+@keyframes wordLeave{
+  0%{
+    opacity:.9;
+    transform:translate3d(0,0,0) rotate(var(--rot)) scale(1);
+    filter:blur(0);
+  }
+  65%{
+    opacity:1;
+    transform:translate3d(0,0,0) rotate(calc(var(--rot)*-.15)) scale(1.8);
+    filter:blur(0);
+  }
+  100%{
+    opacity:0;
+    transform:translate3d(0,0,0) rotate(0deg) scale(2.8);
+    filter:blur(8px);
+  }
+}
