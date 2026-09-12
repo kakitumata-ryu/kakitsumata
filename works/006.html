@@ -15,26 +15,185 @@
 .reader-tag::before{content:"#";color:var(--accent);opacity:.75}
 .reader-summary{border-left:2px solid var(--accent);padding:12px 17px;color:var(--muted);line-height:1.9}
 .reader-caution{margin-top:12px;font-size:.78rem;color:var(--muted)}
+.reader-tools{display:flex;justify-content:flex-end;gap:8px;margin:0 0 35px}
+.reader-tools button{font:inherit;font-size:.72rem;color:var(--muted);background:transparent;border:1px solid var(--line);padding:7px 13px;cursor:pointer}
+.reader-tools button.active,.reader-tools button:hover{color:var(--ink);border-color:var(--accent)}
+.novel-text{font-size:1rem;line-height:2.25;letter-spacing:.015em}
+.novel-text p{margin:0 0 1.45em}
+.novel-text p.dialogue{margin-bottom:.48em}
+.novel-text .blank-line{height:1.15em}
+.novel-pagebreak{margin:4.5rem 0;text-align:center;color:var(--muted);letter-spacing:.45em}
+.novel-pagebreak::before,.novel-pagebreak::after{content:"";display:inline-block;width:72px;height:1px;background:var(--line);vertical-align:middle;margin:0 18px}
 .reader-error{padding:20px;border:1px solid var(--line);color:var(--muted)}
-.reader-nav{max-width:760px;margin:0 auto;padding:0 20px 50px;display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted)}
+.reader-nav{max-width:760px;margin:0 auto;padding:0 20px 65px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;font-size:.78rem}
+.reader-nav a{border:1px solid var(--line);padding:11px 13px;text-decoration:none;color:var(--muted);text-align:center;background:var(--paper)}
+.reader-nav a:hover{color:var(--ink);border-color:var(--accent)}
+.reader-nav .disabled{opacity:.25;pointer-events:none}
+.chat-row{display:flex;width:100%;margin:1.1rem 0}
+.chat-row.left{justify-content:flex-start}
+.chat-row.right{justify-content:flex-end}
+.chat-bubble{position:relative;max-width:min(72%,520px);padding:11px 15px;border:1px solid var(--line);border-radius:18px;background:var(--paper);color:var(--ink);line-height:1.75;box-shadow:0 5px 18px rgba(0,0,0,.06)}
+.chat-row.left .chat-bubble{border-bottom-left-radius:5px}
+.chat-row.right .chat-bubble{border-bottom-right-radius:5px}
+.chat-bubble p{margin:0}
+.chat-blank{height:.8em}
+.chat-reaction{display:inline-flex;align-items:center;justify-content:center;min-width:1.8em;height:1.8em;margin:.65em .15em 0;padding:0 .35em;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--muted);font-size:.78rem;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.reader-image{margin:2rem 0;text-align:center}
+.chat-image{margin:.25rem 0 .1rem}
+.reader-image img,.chat-image img{display:block;max-width:100%;width:auto;max-height:70vh;margin:0 auto;border-radius:8px;cursor:zoom-in}
+.reader-image.is-expanded img,.chat-image.is-expanded img{max-height:none;cursor:zoom-out}
+body.reader-cream{--bg:#f3ecdd;--paper:#fbf7ee;--ink:#29251f;--muted:#766d60;--line:#d8cdbc;--accent:#9b6c32;--neon:#5b8f88;--neon2:#a15d64}
+body.reader-cream .header{background:rgba(251,247,238,.92)}
+@media(max-width:680px){
+  .work-reader{padding-top:42px}
+  .novel-text{font-size:.98rem;line-height:2.15}
+  .novel-pagebreak::before,.novel-pagebreak::after{width:35px;margin:0 10px}
+  .chat-bubble{max-width:82%;padding:10px 13px}
+  .reader-nav{grid-template-columns:1fr 1fr;gap:8px}
+  .reader-nav a:nth-child(2){grid-column:1 / -1;order:-1}
+}
 </style>
 </head>
 <body>
 <header class="header"><a class="logo" href="../index.html">カキツまた / 如く二次創作</a></header>
 <main class="work-reader">
-  <header class="reader-head">
-    <div class="reader-couple">柏真</div>
-    <h1 class="reader-title">深夜2時の避難場所</h1>
-    <div class="reader-tags"><span class="reader-tag">真島誕</span><span class="reader-tag">連作</span></div>
-    <div class="reader-summary">たった一日、一か所だけの逃げ場の話</div>
-    <div class="reader-caution">注意書き：前編</div>
-  </header>
-  <article class="novel-text"><div class="reader-error">この作品の本文ファイルはまだ登録されていません。</div></article>
-</main>
-<div class="reader-nav">
-  <a href="../index.html#novel">← 作品一覧</a>
-  <a href="../index.html">トップへ</a>
+<header class="reader-head">
+<div class="reader-couple">柏真</div>
+<h1 class="reader-title">深夜2時の避難場所</h1>
+<div class="reader-tags"><span class="reader-tag">真島誕</span><span class="reader-tag">連作</span></div>
+<div class="reader-summary">たった一日、一か所だけの逃げ場の話</div>
+<div class="reader-caution">注意書き：前編</div>
+</header>
+<div class="reader-tools">
+<button type="button" id="darkMode" class="active">🌙 暗い</button>
+<button type="button" id="creamMode">☕ クリーム</button>
 </div>
+<article class="novel-text" id="body"><p class="reader-error">本文を読み込んでいます……</p></article>
+</main>
+<div class="reader-nav"><a href="../works/024.html">← 前の作品<br><small>酒の飲み方</small></a><a href="../index.html#novel">作品一覧へ</a><a href="../works/007.html">次の作品 →<br><small>ずっとずうっと先の話</small></a></div>
 <script src="../transition.js"></script>
+<script>
+const IMAGE_BASE = "../images/";
+
+const dark=document.querySelector("#darkMode");
+const cream=document.querySelector("#creamMode");
+function setTheme(theme){
+  document.body.classList.toggle("reader-cream",theme==="cream");
+  dark.classList.toggle("active",theme!=="cream");
+  cream.classList.toggle("active",theme==="cream");
+  localStorage.setItem("kakitsumata-reader-theme",theme);
+}
+setTheme(localStorage.getItem("kakitsumata-reader-theme")||"dark");
+dark.addEventListener("click",()=>setTheme("dark"));
+cream.addEventListener("click",()=>setTheme("cream"));
+
+function makeReaction(value){
+  const span=document.createElement("span");
+  span.className="chat-reaction";
+  span.textContent=value;
+  return span;
+}
+function makeImage(path, cls="reader-image"){
+  const figure=document.createElement("figure");
+  figure.className=cls;
+  const img=document.createElement("img");
+  img.src=path;
+  img.alt="";
+  img.loading="lazy";
+  img.addEventListener("click",()=>figure.classList.toggle("is-expanded"));
+  figure.appendChild(img);
+  return figure;
+}
+function renderChatBlock(lines,side){
+  const wrap=document.createElement("div");
+  wrap.className="chat-row "+side;
+  const bubble=document.createElement("div");
+  bubble.className="chat-bubble";
+  let pendingBlank=0;
+  lines.forEach(line=>{
+    const t=line.trim();
+    if(t===""){pendingBlank++;return;}
+    const rm=t.match(/^\［REACTION：(.+?)\］$/)||t.match(/^\[REACTION:(.+?)\]$/);
+    if(rm){bubble.appendChild(makeReaction(rm[1]));pendingBlank=0;return;}
+    const im=t.match(/^\［IMAGE：(.+?)\］$/)||t.match(/^\[IMAGE:(.+?)\]$/);
+    if(im){bubble.appendChild(makeImage("../images/"+encodeURIComponent(im[1]),"chat-image"));pendingBlank=0;return;}
+    while(pendingBlank>0){const sp=document.createElement("div");sp.className="chat-blank";bubble.appendChild(sp);pendingBlank--;}
+    const p=document.createElement("p");
+    p.textContent=line;
+    bubble.appendChild(p);
+  });
+  while(pendingBlank>0){const sp=document.createElement("div");sp.className="chat-blank";bubble.appendChild(sp);pendingBlank--;}
+  wrap.appendChild(bubble);
+  return wrap;
+}
+function renderBody(text){
+  const marker=/\n\s*───\s*pagebreak\s*───\s*\n/g;
+  const chunks=text.replace(/\r\n/g,"\n").replace(/\r/g,"\n").split(marker);
+  const el=document.querySelector("#body");
+  el.innerHTML="";
+  chunks.forEach((chunk,ci)=>{
+    const article=document.createElement("div");
+    article.className="novel-part";
+    const lines=chunk.split("\n");
+    let pendingBlank=0;
+    let mode=null;
+    let side="left";
+    let chatLines=[];
+
+    function flushChat(){
+      if(mode){
+        article.appendChild(renderChatBlock(chatLines,side));
+        mode=null;
+        chatLines=[];
+      }
+    }
+
+    lines.forEach(line=>{
+      const t=line.trim();
+      const sm=t.match(/^\［CHAT-(left|right)\］$/i)||t.match(/^\[CHAT-(left|right)\]$/i);
+      const em=(t==="［/CHAT］"||t==="[/CHAT]");
+      if(sm){
+        flushChat();
+        mode="chat";
+        side=sm[1].toLowerCase();
+        chatLines=[];
+        pendingBlank=0;
+        return;
+      }
+      if(em&&mode){
+        flushChat();
+        pendingBlank=0;
+        return;
+      }
+      if(mode){
+        chatLines.push(line);
+        return;
+      }
+      if(t===""){pendingBlank++;return;}
+      while(pendingBlank>0){const sp=document.createElement("div");sp.className="blank-line";article.appendChild(sp);pendingBlank--;}
+      const im=t.match(/^\［IMAGE：(.+?)\］$/)||t.match(/^\[IMAGE:(.+?)\]$/);
+      if(im){article.appendChild(makeImage("../images/"+encodeURIComponent(im[1])));return;}
+      const p=document.createElement("p");
+      p.textContent=line;
+      if(/^\s*[「『]/.test(line))p.className="dialogue";
+      article.appendChild(p);
+    });
+    flushChat();
+    while(pendingBlank>0){const sp=document.createElement("div");sp.className="blank-line";article.appendChild(sp);pendingBlank--;}
+    el.appendChild(article);
+    if(ci<chunks.length-1){
+      const br=document.createElement("div");
+      br.className="novel-pagebreak";
+      br.textContent="＊";
+      el.appendChild(br);
+    }
+  });
+}
+fetch("../texts/006.txt",{cache:"no-cache"})
+  .then(r=>{if(!r.ok)throw new Error("本文ファイルが見つかりません");return r.text();})
+  .then(renderBody)
+  .catch(()=>{document.querySelector("#body").innerHTML='<div class="reader-error">この作品の本文ファイルはまだ登録されていません。</div>';});
+
+</script>
 </body>
 </html>

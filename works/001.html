@@ -64,12 +64,17 @@ body.reader-cream .header{background:rgba(251,247,238,.92)}
 <div class="reader-summary">処女作。佐川が真島に名前をあげる話</div>
 
 </header>
-<div class="reader-tools"><button type="button" id="darkMode" class="active">🌙 暗い</button><button type="button" id="creamMode">☕ クリーム</button></div>
+<div class="reader-tools">
+<button type="button" id="darkMode" class="active">🌙 暗い</button>
+<button type="button" id="creamMode">☕ クリーム</button>
+</div>
 <article class="novel-text" id="body"><p class="reader-error">本文を読み込んでいます……</p></article>
 </main>
-<nav class="reader-nav"><a href="../works/035.html">← 前の作品<br><small>過去はきっと、</small></a><a href="../index.html#novel">作品一覧へ</a><a class="disabled" href="#">次の作品 →</a></nav>
+<div class="reader-nav"><a href="../works/035.html">← 前の作品<br><small>過去はきっと、</small></a><a href="../index.html#novel">作品一覧へ</a><a class="disabled" href="#">次の作品 →</a></div>
 <script src="../transition.js"></script>
 <script>
+const IMAGE_BASE = "../images/";
+
 const dark=document.querySelector("#darkMode");
 const cream=document.querySelector("#creamMode");
 function setTheme(theme){
@@ -188,6 +193,7 @@ fetch("../texts/001.txt",{cache:"no-cache"})
   .then(r=>{if(!r.ok)throw new Error("本文ファイルが見つかりません");return r.text();})
   .then(renderBody)
   .catch(()=>{document.querySelector("#body").innerHTML='<div class="reader-error">この作品の本文ファイルはまだ登録されていません。</div>';});
+
 </script>
 </body>
 </html>
