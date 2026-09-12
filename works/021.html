@@ -52,6 +52,19 @@ body.reader-cream .header{background:rgba(251,247,238,.92)}
   .reader-nav{grid-template-columns:1fr 1fr;gap:8px}
   .reader-nav a:nth-child(2){grid-column:1 / -1;order:-1}
 }
+
+/* ルビ */
+ruby{
+  ruby-position:over;
+  ruby-align:center;
+}
+rt{
+  font-size:.48em;
+  line-height:1;
+  letter-spacing:.02em;
+  color:inherit;
+  opacity:.78;
+}
 </style>
 </head>
 <body>
@@ -64,17 +77,12 @@ body.reader-cream .header{background:rgba(251,247,238,.92)}
 <div class="reader-summary">失われてしまった記憶の中で確かに繋がっていた話</div>
 <div class="reader-caution">注意書き：『船出の日』のおまけ</div>
 </header>
-<div class="reader-tools">
-<button type="button" id="darkMode" class="active">🌙 暗い</button>
-<button type="button" id="creamMode">☕ クリーム</button>
-</div>
+<div class="reader-tools"><button type="button" id="darkMode" class="active">🌙 暗い</button><button type="button" id="creamMode">☕ クリーム</button></div>
 <article class="novel-text" id="body"><p class="reader-error">本文を読み込んでいます……</p></article>
 </main>
-<div class="reader-nav"><a href="../works/020.html">← 前の作品<br><small>船出の日</small></a><a href="../index.html#novel">作品一覧へ</a><a href="../works/003.html">次の作品 →<br><small>プリンとホルモン、それから</small></a></div>
+<nav class="reader-nav"><a href="../index.html#novel">作品一覧へ戻る</a></nav>
 <script src="../transition.js"></script>
 <script>
-const IMAGE_BASE = "../images/";
-
 const dark=document.querySelector("#darkMode");
 const cream=document.querySelector("#creamMode");
 function setTheme(theme){
@@ -87,13 +95,36 @@ setTheme(localStorage.getItem("kakitsumata-reader-theme")||"dark");
 dark.addEventListener("click",()=>setTheme("dark"));
 cream.addEventListener("click",()=>setTheme("cream"));
 
+
 function makeReaction(value){
   const span=document.createElement("span");
   span.className="chat-reaction";
   span.textContent=value;
   return span;
 }
-function makeImage(path, cls="reader-image"){
+function applyRuby(text){
+  const frag=document.createDocumentFragment();
+  const re=/｜([^《]+)《([^》]+)》/g;
+  let last=0, m;
+  while((m=re.exec(text))){
+    if(m.index>last) frag.appendChild(document.createTextNode(text.slice(last,m.index)));
+    const ruby=document.createElement("ruby");
+    ruby.appendChild(document.createTextNode(m[1]));
+    const rt=document.createElement("rt");
+    rt.textContent=m[2];
+    ruby.appendChild(rt);
+    frag.appendChild(ruby);
+    last=re.lastIndex;
+  }
+  if(last<text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+  return frag;
+}
+function makeTextP(line){
+  const p=document.createElement("p");
+  p.appendChild(applyRuby(line));
+  return p;
+}
+function makeImage(path,cls="reader-image"){
   const figure=document.createElement("figure");
   figure.className=cls;
   const img=document.createElement("img");
@@ -116,11 +147,9 @@ function renderChatBlock(lines,side){
     const rm=t.match(/^\［REACTION：(.+?)\］$/)||t.match(/^\[REACTION:(.+?)\]$/);
     if(rm){bubble.appendChild(makeReaction(rm[1]));pendingBlank=0;return;}
     const im=t.match(/^\［IMAGE：(.+?)\］$/)||t.match(/^\[IMAGE:(.+?)\]$/);
-    if(im){bubble.appendChild(makeImage("../images/"+encodeURIComponent(im[1]),"chat-image"));pendingBlank=0;return;}
+    if(im){bubble.appendChild(makeImage(IMAGE_BASE+encodeURIComponent(im[1]),"chat-image"));pendingBlank=0;return;}
     while(pendingBlank>0){const sp=document.createElement("div");sp.className="chat-blank";bubble.appendChild(sp);pendingBlank--;}
-    const p=document.createElement("p");
-    p.textContent=line;
-    bubble.appendChild(p);
+    bubble.appendChild(makeTextP(line));
   });
   while(pendingBlank>0){const sp=document.createElement("div");sp.className="chat-blank";bubble.appendChild(sp);pendingBlank--;}
   wrap.appendChild(bubble);
@@ -135,46 +164,26 @@ function renderBody(text){
     const article=document.createElement("div");
     article.className="novel-part";
     const lines=chunk.split("\n");
-    let pendingBlank=0;
-    let mode=null;
-    let side="left";
-    let chatLines=[];
-
+    let pendingBlank=0, mode=null, side="left", chatLines=[];
     function flushChat(){
-      if(mode){
-        article.appendChild(renderChatBlock(chatLines,side));
-        mode=null;
-        chatLines=[];
-      }
+      if(mode){article.appendChild(renderChatBlock(chatLines,side));mode=null;chatLines=[];}
     }
-
     lines.forEach(line=>{
       const t=line.trim();
       const sm=t.match(/^\［CHAT-(left|right)\］$/i)||t.match(/^\[CHAT-(left|right)\]$/i);
       const em=(t==="［/CHAT］"||t==="[/CHAT]");
       if(sm){
+        while(pendingBlank>0){const sp=document.createElement("div");sp.className="blank-line";article.appendChild(sp);pendingBlank--;}
         flushChat();
-        mode="chat";
-        side=sm[1].toLowerCase();
-        chatLines=[];
-        pendingBlank=0;
-        return;
+        mode="chat"; side=sm[1].toLowerCase(); chatLines=[]; return;
       }
-      if(em&&mode){
-        flushChat();
-        pendingBlank=0;
-        return;
-      }
-      if(mode){
-        chatLines.push(line);
-        return;
-      }
-      if(t===""){pendingBlank++;return;}
+      if(em&&mode){flushChat(); pendingBlank=0; return;}
+      if(mode){chatLines.push(line); return;}
+      if(t===""){pendingBlank++; return;}
       while(pendingBlank>0){const sp=document.createElement("div");sp.className="blank-line";article.appendChild(sp);pendingBlank--;}
       const im=t.match(/^\［IMAGE：(.+?)\］$/)||t.match(/^\[IMAGE:(.+?)\]$/);
-      if(im){article.appendChild(makeImage("../images/"+encodeURIComponent(im[1])));return;}
-      const p=document.createElement("p");
-      p.textContent=line;
+      if(im){article.appendChild(makeImage(IMAGE_BASE+encodeURIComponent(im[1])));return;}
+      const p=makeTextP(line);
       if(/^\s*[「『]/.test(line))p.className="dialogue";
       article.appendChild(p);
     });
@@ -189,11 +198,11 @@ function renderBody(text){
     }
   });
 }
+
 fetch("../texts/021.txt",{cache:"no-cache"})
   .then(r=>{if(!r.ok)throw new Error("本文ファイルが見つかりません");return r.text();})
   .then(renderBody)
   .catch(()=>{document.querySelector("#body").innerHTML='<div class="reader-error">この作品の本文ファイルはまだ登録されていません。</div>';});
-
 </script>
 </body>
 </html>
