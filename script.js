@@ -5,14 +5,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const again = document.querySelector("#again");
   const note = document.querySelector("#todayText");
 
-  const notes = [
-    "眠い。なのに書いている。",
-    "作品は増える。机は片付かない。",
-    "今日は何も考えたくない。でも書く。",
-    "昨日の自分に何を書いたのか聞きたい。",
-    "たぶん大丈夫。たぶん。"
-  ];
-  if (note) note.textContent = notes[new Date().getDate() % notes.length];
+  if (note) {
+    fetch("texts/memo.txt", { cache: "no-cache" })
+      .then(r => { if (!r.ok) throw new Error("memo.txt not found"); return r.text(); })
+      .then(text => {
+        note.textContent = text.replace(/\r\n/g, "\n").replace(/\r/g, "\n").trim();
+      })
+      .catch(() => {
+        note.textContent = "メモを読み込めませんでした。";
+      });
+  }
 
   const toHira = s => String(s || "").replace(/[ァ-ヶ]/g, ch =>
     String.fromCharCode(ch.charCodeAt(0) - 0x60)

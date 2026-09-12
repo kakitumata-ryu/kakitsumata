@@ -80,7 +80,40 @@
 </main>
 
 <footer>© カキツまた　／　たぶん、まだ増えます。</footer>
+
+<script>
+window.kakitsumataChime = function () {
+  try {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    const ctx = window.__kakitsumataAudio || (window.__kakitsumataAudio = new AC());
+    if (ctx.state === "suspended") ctx.resume();
+
+    const now = ctx.currentTime;
+    const master = ctx.createGain();
+    master.gain.setValueAtTime(0.0001, now);
+    master.gain.exponentialRampToValueAtTime(0.035, now + 0.035);
+    master.gain.exponentialRampToValueAtTime(0.0001, now + 1.05);
+    master.connect(ctx.destination);
+
+    [[880, 0.00, 0.72], [1320, 0.055, 0.92]].forEach(([freq, delay, dur]) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(freq, now + delay);
+      gain.gain.setValueAtTime(0.0001, now + delay);
+      gain.gain.exponentialRampToValueAtTime(0.5, now + delay + 0.025);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + delay + dur);
+      osc.connect(gain);
+      gain.connect(master);
+      osc.start(now + delay);
+      osc.stop(now + delay + dur + 0.02);
+    });
+  } catch (_) {}
+};
+</script>
 <script src="data.js"></script>
 <script src="script.js"></script>
+<script src="transition.js"></script>
 </body>
 </html>
