@@ -21,7 +21,6 @@
 </main>
 <script src="data.js"></script>
 <script>
-const existingHref = {"柏真3":"works/kashima3.html","傘の使い方":"works/kasa.html","冷麺放置プレイ":"works/reimen.html"};
 const esc = s => String(s||"").replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 const adultWorks = (window.SITE_WORKS||[]).filter(w=>w.adult && !w.grave).sort((a,b)=>(a.reading||"").localeCompare(b.reading||"","ja"));
 const couples = ["すべて","冴真","桐真","柏真","佐真","西真","ノア真","その他真島関連","その他真島以外"];
@@ -31,7 +30,7 @@ function render(filter="すべて"){
   filters.querySelectorAll("button").forEach(b=>b.classList.toggle("active",b.dataset.filter===filter));
   const rows=adultWorks.filter(w=>filter==="すべて"||w.couple===filter);
   list.innerHTML=rows.map(w=>{
-    const href = existingHref[w.title] || `adult-warning.html?id=${encodeURIComponent(w.id)}`;
+    const href = `adult-warning.html?id=${encodeURIComponent(w.id)}`;
     return `<a href="${href}" class="work"><span class="meta">${esc(w.couple)} / 🔞</span><strong>${esc(w.title)}</strong><em>${esc(w.description)}</em></a>`;
   }).join("");
 }

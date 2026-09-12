@@ -428,3 +428,8 @@ main {
 .adult-gate-actions button,.adult-gate-actions a{padding:10px 17px;border:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;font-size:.82rem;text-decoration:none;cursor:pointer}
 .adult-gate-actions button{border-color:var(--accent)}
 .adult-gate-actions button:hover,.adult-gate-actions a:hover{background:rgba(214,164,95,.08)}
+
+/* v19 */
+.works .work .meta{font-size:.72rem}
+.work strong{display:block}
+.sort-note{display:block;margin-top:.35rem}

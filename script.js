@@ -22,7 +22,7 @@ const fonts = {
 const words = [];
 for (const work of allWorks) {
   for (const text of (work.falling || [])) {
-    words.push({ t: text, h: work._href, f: "serif", adult: !!work.adult });
+    words.push({ t: text, h: work._href, id: work.id, f: "serif", adult: !!work.adult });
   }
 }
 
@@ -39,7 +39,7 @@ function addWord() {
   const w = words[Math.floor(Math.random() * words.length)];
   const a = document.createElement("a");
   a.className = "word";
-  a.href = w.h || "#";
+  a.href = w.adult ? `adult-warning.html?id=${encodeURIComponent(w.id)}` : (w.h || "#");
   if (w.adult) a.dataset.adult = "true";
 
   const left = 4 + Math.random() * 82;
