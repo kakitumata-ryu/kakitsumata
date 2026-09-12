@@ -21,16 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
   }[ch]));
   const isTrue = v => v === true || ["はい","Yes","TRUE","true","1"].includes(String(v));
-  function softNavigate(href, wordEl) {
-    if (!href || href === "#") return;
-    if (wordEl) wordEl.classList.add("word-leaving");
-
-    let veil = document.querySelector(".page-transition");
-    if (!veil) {
-      veil = document.createElement("div");
-      veil.className = "page-transition";
-      document.body.appendChild(veil);
-    }
     requestAnimationFrame(() => veil.classList.add("active"));
     window.setTimeout(() => { window.location.href = href; }, 520);
   }
@@ -58,7 +48,13 @@ document.addEventListener("DOMContentLoaded", () => {
       a.href = destination;
       a.addEventListener("click", (e) => {
         e.preventDefault();
-        softNavigate(destination, a);
+        a.classList.add("word-selected");
+        if (window.kakitsumataChime) window.kakitsumataChime();
+        if (window.kakitsumataTransition) {
+          window.kakitsumataTransition.leaveTo(destination);
+        } else {
+          window.setTimeout(() => { window.location.href = destination; }, 980);
+        }
       });
 
       a.style.left = `${4 + Math.random() * 82}%`;

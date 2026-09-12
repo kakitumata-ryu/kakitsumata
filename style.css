@@ -475,3 +475,96 @@ main {
     filter:blur(8px);
   }
 }
+
+/* 文字を拾ったときの「ぽちゃん」→画面がぼやけて重なる遷移 */
+html.page-leaving{
+  overflow:hidden;
+}
+html.page-leaving body > *{
+  filter:blur(8px);
+  opacity:.72;
+  transform:scale(1.015);
+  transition:filter .92s ease, opacity .92s ease, transform .92s ease;
+}
+html.page-leaving::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:9998;
+  pointer-events:none;
+  background:rgba(13,16,19,.12);
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px);
+  animation:softVeilOut .98s ease forwards;
+}
+html.page-entering body > *{
+  filter:blur(11px);
+  opacity:.18;
+  transform:scale(1.015);
+}
+html.page-entered body > *{
+  filter:blur(0);
+  opacity:1;
+  transform:scale(1);
+  transition:filter .72s cubic-bezier(.2,.7,.2,1),
+             opacity .72s ease,
+             transform .72s cubic-bezier(.2,.7,.2,1);
+}
+@keyframes softVeilOut{
+  0%{opacity:0}
+  55%{opacity:.38}
+  100%{opacity:.1}
+}
+
+.word-selected{
+  z-index:10001 !important;
+  pointer-events:none;
+  animation:wordPlop 1.02s cubic-bezier(.16,.72,.22,1) forwards !important;
+}
+.word-selected span{
+  animation:wordGlow 1.02s ease forwards;
+}
+.word-selected::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:1.2em;
+  height:1.2em;
+  border:1px solid rgba(238,234,226,.9);
+  border-radius:50%;
+  transform:translate(-50%,-50%) scale(.45);
+  opacity:.8;
+  animation:wordRipple 1.02s ease-out forwards;
+}
+@keyframes wordPlop{
+  0%{
+    opacity:.9;
+    transform:translate3d(0,0,0) rotate(var(--rot)) scale(1);
+    filter:blur(0);
+  }
+  38%{
+    opacity:1;
+    transform:translate3d(0,0,0) rotate(calc(var(--rot)*-.08)) scale(1.45);
+    filter:blur(0);
+  }
+  72%{
+    opacity:.95;
+    transform:translate3d(0,0,0) rotate(0deg) scale(2.15);
+    filter:blur(1px);
+  }
+  100%{
+    opacity:0;
+    transform:translate3d(0,0,0) rotate(0deg) scale(2.9);
+    filter:blur(7px);
+  }
+}
+@keyframes wordGlow{
+  0%,35%{filter:blur(0);opacity:1}
+  75%{filter:blur(1px);opacity:.95}
+  100%{filter:blur(7px);opacity:0}
+}
+@keyframes wordRipple{
+  0%{transform:translate(-50%,-50%) scale(.45);opacity:.7}
+  100%{transform:translate(-50%,-50%) scale(4.8);opacity:0}
+}
